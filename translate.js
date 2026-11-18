@@ -268,8 +268,7 @@
     if (tr.available === null) getSample().then(() => { if (location.hash === '#translate') keepScroll(); });
     const ai = tr.available === true;
     const hist = history();
-    return `<nav class="seg2 tabs" aria-label="Словарь и переводчик"><a class="chip-t" href="#dict">Словарь</a><a class="chip-t" href="#translate" aria-current="page">Переводчик</a></nav>
-      <div class="page-head"><h1>Переводчик</h1><p class="muted">${ai ? 'Русский ⇄ немецкий: перевод с артиклями, разбор слов, склонение и объяснения.' : 'Русский ⇄ немецкий по словарю курса: артикли, мн. ч., склонение, спряжение и подсказки по роду.'}</p></div>
+    return `<div class="page-head"><h1>Переводчик</h1><p class="muted">${ai ? 'Русский ⇄ немецкий: перевод с артиклями, разбор слов, склонение и объяснения.' : 'Русский ⇄ немецкий по словарю курса: артикли, мн. ч., склонение, спряжение и подсказки по роду.'}</p></div>
       <section class="panel stack">
         <div class="seg2" role="group" aria-label="Направление">${DIRS.map(([id, t]) => `<button class="chip-t" data-act="tr-dir" data-id="${id}" aria-pressed="${tr.dir === id}">${t}</button>`).join('')}</div>
         <form class="stack" style="gap:10px" data-form="tr">
@@ -320,7 +319,6 @@
 
   D.register({
     views: { translate: render },
-    nav: { translate: 'dict' },
     actions: {
       'tr-dir': (el) => { tr = { ...tr, dir: el.dataset.id }; readInput(); keepScroll(); },
       'tr-style': (el) => { tr = { ...tr, style: el.dataset.id }; readInput(); keepScroll(); },
