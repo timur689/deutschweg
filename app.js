@@ -658,6 +658,7 @@
   /* ---------- вид: словарь ---------- */
   function renderDict() {
     return `<div class="stack">
+      <nav class="seg2 tabs" aria-label="Словарь и переводчик"><a class="chip-t" href="#dict" aria-current="page">Словарь</a><a class="chip-t" href="#translate">Переводчик</a></nav>
       <div class="stack" style="gap:6px"><h1>Словарь</h1><p class="muted">Все ${WORDS.length} слов курса с артиклями и множественным числом.</p></div>
       <div class="toolbar">
         <input id="dictSearch" type="search" placeholder="Поиск по-немецки или по-русски" value="${esc(ui.dictQuery)}" aria-label="Поиск">
