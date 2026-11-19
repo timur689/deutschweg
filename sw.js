@@ -1,5 +1,5 @@
 /* Service worker Deutschweg: файлы приложения хранятся на устройстве, чтобы оно работало без интернета. */
-const CACHE = 'deutschweg-1bcc9526f52c';
+const CACHE = 'deutschweg-676e4311fc76';
 const FILES = [
   "./",
   "./index.html",
@@ -40,7 +40,10 @@ const FILES = [
 const FONT_CACHE = 'deutschweg-fonts';
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
+  // cache: 'reload' — берём файлы с сервера, а не из кэша браузера, иначе новая версия может сохранить старые файлы.
+  e.waitUntil(caches.open(CACHE)
+    .then((c) => c.addAll(FILES.map((f) => new Request(f, { cache: 'reload' }))))
+    .then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (e) => {

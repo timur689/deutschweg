@@ -609,7 +609,23 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 <script src="install.js"></script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
+  const hadController = !!navigator.serviceWorker.controller;
+  const openedAt = Date.now();
+  const FRESH_MS = 15000;
+  let reloadPending = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!hadController) return;
+    if (Date.now() - openedAt < FRESH_MS) location.reload(); else reloadPending = true;
+  });
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').then((reg) => {
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState !== 'visible') return;
+        if (reloadPending) { location.reload(); return; }
+        reg.update().catch(() => {});
+      });
+    }).catch(() => {});
+  });
 }
 </script>
 </body></html>
