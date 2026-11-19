@@ -478,6 +478,17 @@
     }).join('')}</div>`;
   }
 
+  /* Короткая теория урока из theory.js; данные — доверенный HTML курса, как и тексты правил. */
+  function theoryPanel(unitId) {
+    const items = (window.DE_THEORY || {})[unitId];
+    if (!Array.isArray(items) || !items.length) return '';
+    return `<section class="panel rule-body theory">
+        <h2>Теория урока</h2>
+        <ul>${items.map((x) => `<li>${x}</li>`).join('')}</ul>
+        <p class="small muted">Подробно, с таблицами и тестом — в правилах шага 2.</p>
+      </section>`;
+  }
+
   /* ---------- вид: урок ---------- */
   function renderUnit(id) {
     const u = UNIT[id];
@@ -486,6 +497,8 @@
     return `
       <a class="back" href="#path">← Все уроки</a>
       <div class="page-head"><p class="eyebrow">${u.level} · Урок ${u.num}</p><h1>${esc(u.t)}</h1></div>
+
+      ${theoryPanel(u.id)}
 
       <section class="panel step">
         <div class="step-head"><h2><span class="check ${s.w ? 'on' : ''}">${s.w ? '✓' : '1'}</span>Слова</h2>
