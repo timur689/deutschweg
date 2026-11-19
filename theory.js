@@ -1,226 +1,393 @@
 /* Короткая теория к каждому уроку: главное, что нужно знать перед шагами урока.
-   Ключ — id урока из data-*.js, значение — пункты списка (HTML: <b> — выделение, <i> — немецкий пример).
+   Ключ — id урока из data-*.js. Каждый пункт: [заголовок, объяснение, [[пример по-немецки, перевод], …]].
+   В объяснении и немецком примере можно использовать <b> для выделения; перевод — простой текст.
+   Пишем простым языком, без сокращений; термин — только с русским пояснением.
    Подробные правила с таблицами и тестами — в rules соответствующего уровня. */
 window.DE_THEORY = {
   /* ---------- A1.1 ---------- */
   'a11-u1': [
-    'Представиться: <i>Ich heiße Anna.</i> / <i>Mein Name ist Anna.</i> Спросить: <i>Wie heißt du?</i> — <i>Wie heißen Sie?</i>',
-    '<b>du</b> — друзьям, семье, детям; <b>Sie</b> — незнакомым взрослым, на работе, в магазине. Sie всегда с большой буквы, а глагол — как у «они»: <i>Sie wohnen</i>.',
-    '<b>sein</b> нельзя пропускать, как в русском: <i>Ich <b>bin</b> Student.</i> Перед профессией и национальностью артикля нет.',
-    'Окончания глагола: ich <b>-e</b>, du <b>-st</b>, er <b>-t</b>, wir <b>-en</b>, ihr <b>-t</b>, sie/Sie <b>-en</b>. У некоторых глаголов в du/er меняется гласная: <i>du sprichst, er spricht</i>.',
-    'Откуда: <b>aus</b> + страна: <i>aus Polen</i>; страны женского рода — с артиклем: <i>aus <b>der</b> Ukraine, aus der Türkei</i>. Каждое существительное учите с артиклем: <i>der Mann, die Stadt, das Kind</i>.'
+    ['Как представиться', 'Чтобы назвать себя, используйте глагол <b>heißen</b> («называться») или фразу <b>Mein Name ist …</b>', [
+      ['Ich heiße Anna.', 'Меня зовут Анна.'],
+      ['Wie heißt du?', 'Как тебя зовут?']]],
+    ['«Ты» и «Вы»', '<b>du</b> говорят друзьям, родным и детям. <b>Sie</b> — незнакомым взрослым, в магазине, на работе. Вежливое Sie всегда пишется с большой буквы.', [
+      ['Wie heißen <b>Sie</b>?', 'Как Вас зовут?']]],
+    ['Глагол «быть» нельзя пропускать', 'По-русски мы говорим «я студент», а по-немецки обязательно нужен глагол <b>sein</b> (быть): ich <b>bin</b>, du <b>bist</b>, er <b>ist</b>, wir <b>sind</b>, ihr <b>seid</b>, sie <b>sind</b>.', [
+      ['Ich <b>bin</b> Student.', 'Я студент.'],
+      ['Wir <b>sind</b> Freunde.', 'Мы друзья.']]],
+    ['Окончание глагола зависит от того, кто действует', 'ich — <b>-e</b>, du — <b>-st</b>, er/sie — <b>-t</b>, wir и Sie — <b>-en</b>. У некоторых глаголов в формах «ты» и «он» меняется ещё и гласная: sprechen → er spr<b>i</b>cht.', [
+      ['Wo wohn<b>st</b> du?', 'Где ты живёшь?'],
+      ['Er sprich<b>t</b> Deutsch.', 'Он говорит по-немецки.']]],
+    ['Откуда вы', '«Из» — это <b>aus</b>. Большинство стран идут без артикля, но некоторые — с артиклем: die Ukraine, die Türkei, die Schweiz.', [
+      ['Ich komme aus Polen.', 'Я из Польши.'],
+      ['Ich komme aus <b>der</b> Ukraine.', 'Я из Украины.']]]
   ],
   'a11-u2': [
-    '<b>haben</b> неправильный: <i>ich habe, du hast, er hat</i>. «У меня есть брат» = <i>Ich habe einen Bruder.</i>',
-    'Притяжательные: mein, dein, sein (его), ihr (её), unser, euer, ihr (их), Ihr (Ваш). Перед женским родом и мн. ч. — <b>-e</b>: <i>mein<b>e</b> Mutter, mein<b>e</b> Eltern</i>, но <i>mein Vater</i>.',
-    'Возраст — через <b>sein</b>, не haben: <i>Ich bin 25 (Jahre alt).</i> — <i>Wie alt bist du?</i>',
-    'Вопрос с W-словом: глагол на 2-м месте — <i>Wo wohnst du?</i> Вопрос «да/нет»: глагол первым — <i>Hast du Geschwister?</i>',
-    '<b>Eltern</b> и <b>Geschwister</b> — только во множественном числе: <i>Meine Eltern wohnen in Kiew.</i>'
+    ['«У меня есть» = «я имею»', 'По-немецки говорят «я имею брата». Глагол <b>haben</b> (иметь): ich <b>habe</b>, du <b>hast</b>, er <b>hat</b>, wir <b>haben</b>.', [
+      ['Ich habe einen Bruder.', 'У меня есть брат.'],
+      ['Hast du Geschwister?', 'У тебя есть братья или сёстры?']]],
+    ['Мой, твой, его, её', '<b>mein</b> — мой, <b>dein</b> — твой, <b>sein</b> — его, <b>ihr</b> — её, <b>unser</b> — наш. Перед словом женского рода и во множественном числе добавляется <b>-e</b>.', [
+      ['mein Vater · mein<b>e</b> Mutter', 'мой отец · моя мать'],
+      ['mein<b>e</b> Eltern', 'мои родители']]],
+    ['Возраст — с глаголом «быть»', 'Немцы говорят не «мне 25 лет», а «я есть 25 лет старый».', [
+      ['Ich <b>bin</b> 25 Jahre alt.', 'Мне 25 лет.'],
+      ['Wie alt ist dein Sohn?', 'Сколько лет твоему сыну?']]],
+    ['Как задать вопрос', 'Если в начале вопросительное слово (wo — где, wie — как, wer — кто), глагол идёт сразу за ним. Если ответ «да» или «нет» — глагол ставим первым.', [
+      ['Wo <b>wohnst</b> du?', 'Где ты живёшь?'],
+      ['<b>Wohnst</b> du in Berlin?', 'Ты живёшь в Берлине?']]]
   ],
   'a11-u3': [
-    'Числа 21–99 читаются «единицы + und + десятки»: <i>einundzwanzig</i> (21), <i>fünfundvierzig</i> (45). Внимание: <i>sechzehn, siebzehn, dreißig, sechzig, siebzig</i>.',
-    'Время: <i>Wie spät ist es?</i> — <i>Es ist drei Uhr.</i> <b>halb vier</b> = 3:30 (половина <i>до</i> четырёх!), <i>Viertel nach drei</i> = 3:15, <i>Viertel vor vier</i> = 3:45.',
-    'Главное правило порядка слов: глагол всегда на <b>2-м месте</b>. Начали с времени — подлежащее идёт после глагола: <i>Heute <b>lerne</b> ich.</i> (не «Heute ich lerne»).',
-    'Дни недели — мужского рода: <i>der Montag</i>; «в понедельник» = <i><b>am</b> Montag</i>, «в 8 часов» = <i><b>um</b> acht Uhr</i>.',
-    '<i>morgen</i> — завтра, <i>der Morgen</i> — утро; <i>heute Morgen</i> — сегодня утром.'
+    ['Глагол всегда на втором месте', 'Главное правило немецкого языка. Если начать предложение со слова «сегодня» или «завтра», то «я» переходит за глагол.', [
+      ['Heute <b>lerne</b> ich.', 'Сегодня я учусь.'],
+      ['Morgen <b>habe</b> ich keine Zeit.', 'Завтра у меня нет времени.']]],
+    ['Числа после двадцати читаются «наоборот»', 'Сначала единицы, потом десятки, между ними <b>und</b> («и»).', [
+      ['einundzwanzig', '21 — «один-и-двадцать»'],
+      ['fünfundvierzig', '45 — «пять-и-сорок»']]],
+    ['Который час', '<b>halb</b> («половина») считают до следующего часа, как в русском «половина четвёртого». <b>Viertel</b> — четверть.', [
+      ['Es ist halb vier.', 'Сейчас половина четвёртого (3:30).'],
+      ['Es ist Viertel nach drei.', 'Сейчас четверть четвёртого (3:15).']]],
+    ['«В восемь», «в понедельник»', 'Перед временем на часах — <b>um</b>, перед днём недели — <b>am</b>.', [
+      ['um acht Uhr', 'в восемь часов'],
+      ['am Montag', 'в понедельник']]]
   ],
   'a11-u4': [
-    '<b>Akkusativ</b> (кого? что?) меняет только мужской род: der → <b>den</b>, ein → <b>einen</b>, kein → <b>keinen</b>. Женский, средний и мн. ч. не меняются.',
-    'Akkusativ нужен после haben, möchten, essen, trinken, kaufen, brauchen: <i>Ich möchte <b>einen</b> Kaffee.</i>',
-    '<b>kein</b> отрицает существительное без артикля или с ein: <i>Ich esse kein Fleisch.</i> <b>nicht</b> — всё остальное: <i>Das Brot ist nicht frisch.</i>',
-    '<b>gern</b> + глагол = «люблю делать»: <i>Ich trinke gern Tee.</i> Сильнее — <i>lieber</i>, сильнее всего — <i>am liebsten</i>.',
-    'essen меняет гласную: <i>du isst, er isst</i>. Вежливо заказать: <i>Ich möchte …</i> / <i>Ich hätte gern …</i>'
+    ['Ответ на вопрос «что?» меняет артикль', 'После глаголов «есть», «пить», «покупать», «хотеть», «иметь» артикль мужского рода меняется: der → <b>den</b>, ein → <b>einen</b>. Женский и средний род не меняются. Этот падеж называется Akkusativ (винительный).', [
+      ['Ich möchte <b>einen</b> Apfel.', 'Я хотел(а) бы яблоко.'],
+      ['Ich kaufe <b>den</b> Käse.', 'Я покупаю этот сыр.']]],
+    ['kein — «нет, никакой»', 'Ставится вместо ein или перед существительным без артикля.', [
+      ['Ich esse <b>kein</b> Fleisch.', 'Я не ем мясо.'],
+      ['Ich habe <b>keine</b> Zeit.', 'У меня нет времени.']]],
+    ['nicht — «не»', 'Отрицает всё остальное: действие, качество, целое предложение.', [
+      ['Das Brot ist <b>nicht</b> frisch.', 'Хлеб несвежий.'],
+      ['Ich trinke <b>nicht</b> gern Milch.', 'Я не люблю пить молоко.']]],
+    ['gern — «люблю делать»', 'Слово <b>gern</b> после глагола значит «делать с удовольствием».', [
+      ['Ich trinke <b>gern</b> Kaffee.', 'Я люблю пить кофе.']]]
   ],
   'a11-u5': [
-    'Артикль во множественном числе всегда <b>die</b>: <i>der Tisch → die Tische</i>.',
-    'Окончание множественного числа учите вместе со словом: <b>-e</b> (Tische), <b>-er</b> с умляутом (Häuser), <b>-(e)n</b> (Lampen), <b>-s</b> (Sofas), без окончания (Zimmer).',
-    'Подсказки: женский род на -e, -ung, -heit, -keit → <b>-(e)n</b>; мужской и средний на -er, -el, -en часто без окончания; заимствования → <b>-s</b>.',
-    '«Нет» во мн. ч. — <b>keine</b>: <i>Hier gibt es keine Stühle.</i> «Есть, имеется» — <i>es gibt</i> + Akk: <i>Es gibt einen Balkon.</i>',
-    'После sein прилагательное без окончания: <i>Die Wohnung ist klein, aber schön.</i>'
+    ['Во множественном числе артикль всегда die', 'Какой бы ни был род в единственном числе, во множественном у всех слов один артикль — <b>die</b>.', [
+      ['der Tisch → <b>die</b> Tische', 'стол → столы'],
+      ['das Zimmer → <b>die</b> Zimmer', 'комната → комнаты']]],
+    ['Окончание множественного числа учите вместе со словом', 'Единого окончания нет. Подсказки: слова женского рода на -e получают <b>-n</b>, иностранные слова — <b>-s</b>, слова на -er и -el часто не меняются.', [
+      ['die Lampe → die Lampe<b>n</b>', 'лампа → лампы'],
+      ['das Sofa → die Sofa<b>s</b>', 'диван → диваны']]],
+    ['«Нет» во множественном числе — keine', '', [
+      ['Wir haben <b>keine</b> Stühle.', 'У нас нет стульев.']]],
+    ['Как описать квартиру', 'После ist и sind прилагательное ничего не добавляет к концу.', [
+      ['Die Wohnung ist klein, aber schön.', 'Квартира маленькая, но красивая.'],
+      ['Die Stühle sind neu.', 'Стулья новые.']]]
   ],
 
   /* ---------- A1.2 ---------- */
   'a12-u1': [
-    'Отделяемые приставки (auf-, an-, ein-, fern-, mit-, zu- …) в настоящем уходят в конец: <i>aufstehen → Ich stehe um sieben Uhr <b>auf</b>.</i>',
-    'С модальным глаголом слово не разделяется: <i>Ich muss früh aufstehen.</i> Ударение — на приставке.',
-    'Время: <b>um</b> + часы (<i>um 8 Uhr</i>), <b>am</b> + день и часть дня (<i>am Montag, am Abend</i>, но <i>in der Nacht</i>), <b>im</b> + месяц и сезон (<i>im Mai, im Winter</i>).',
-    'immer, oft, manchmal, selten, nie обычно стоят сразу после глагола: <i>Er schläft nie lange.</i>',
-    'Гласная меняется в du/er: <i>schlafen → er schläft, anfangen → er fängt an, fernsehen → er sieht fern</i>.'
+    ['Приставка «отрывается» и уходит в конец', 'У некоторых глаголов приставка в предложении отделяется и встаёт в самый конец. Такие приставки: auf-, an-, ein-, fern-, mit-, zu-.', [
+      ['aufstehen → Ich stehe um sieben Uhr <b>auf</b>.', 'вставать → Я встаю в семь часов.'],
+      ['einkaufen → Am Samstag kaufe ich <b>ein</b>.', 'делать покупки → В субботу я хожу за покупками.']]],
+    ['С «должен» и «могу» приставка не отрывается', 'Тогда глагол целиком стоит в конце.', [
+      ['Ich muss früh <b>aufstehen</b>.', 'Мне нужно рано вставать.']]],
+    ['um, am, im — «в»', '<b>um</b> — время на часах, <b>am</b> — день и часть дня, <b>im</b> — месяц и время года. Запомните исключение: in der Nacht — ночью.', [
+      ['um 9 Uhr · am Abend · im Winter', 'в 9 часов · вечером · зимой']]],
+    ['Как часто', 'immer (всегда), oft (часто), manchmal (иногда), nie (никогда) обычно стоят сразу после глагола.', [
+      ['Er schläft <b>nie</b> lange.', 'Он никогда не спит долго.']]]
   ],
   'a12-u2': [
-    'Модальные глаголы: <b>können</b> (мочь, уметь), <b>wollen</b> (хотеть), <b>müssen</b> (должен), <b>dürfen</b> (можно), <b>sollen</b> (следует), <b>möchten</b> (хотел бы).',
-    'У модальных ich и er одинаковые и без окончания: <i>ich kann, er kann; ich muss, er muss</i>.',
-    'Рамка: модальный глагол на 2-м месте, инфинитив — в самом конце: <i>Ich <b>kann</b> gut <b>schwimmen</b>.</i>',
-    '<b>nicht dürfen</b> = нельзя, <b>nicht müssen</b> = не нужно: <i>Hier darf man nicht rauchen.</i> — <i>Du musst nicht kommen.</i>',
-    '<b>man</b> + глагол в форме er = «люди, вообще»: <i>Hier darf man parken.</i>'
+    ['Глаголы «могу», «хочу», «должен», «можно»', '<b>können</b> — мочь, уметь; <b>wollen</b> — хотеть; <b>müssen</b> — быть должным; <b>dürfen</b> — иметь разрешение. Они называются модальными.', [
+      ['Willst du ins Kino gehen?', 'Хочешь пойти в кино?']]],
+    ['Второй глагол — в самый конец', 'Модальный глагол стоит на втором месте, а главный глагол в начальной форме — в конце предложения. Получается «рамка».', [
+      ['Ich <b>kann</b> gut <b>schwimmen</b>.', 'Я хорошо умею плавать.'],
+      ['Wir <b>müssen</b> heute <b>arbeiten</b>.', 'Сегодня нам нужно работать.']]],
+    ['«Нельзя» и «не нужно» — это разное', '<b>nicht dürfen</b> — запрещено. <b>nicht müssen</b> — не обязательно.', [
+      ['Hier <b>darf</b> man nicht rauchen.', 'Здесь нельзя курить.'],
+      ['Du <b>musst</b> nicht kommen.', 'Тебе не обязательно приходить.']]],
+    ['«Я» и «он» звучат одинаково', 'У модальных глаголов формы для ich и er совпадают и не имеют окончания.', [
+      ['ich kann · er kann', 'я могу · он может']]]
   ],
   'a12-u3': [
-    '<b>Dativ</b> (кому? где?): der → <b>dem</b>, die → <b>der</b>, das → <b>dem</b>, мн. ч. → <b>den</b> + -n у существительного: <i>mit den Freunde<b>n</b></i>.',
-    'Всегда с Dativ: <b>aus, bei, mit, nach, seit, von, zu</b>: <i>mit dem Bus, bei der Post, nach dem Kurs</i>.',
-    'Слияния: zu dem → <b>zum</b>, zu der → <b>zur</b>, bei dem → <b>beim</b>, von dem → <b>vom</b>: <i>zum Bahnhof, zur Apotheke</i>.',
-    '<b>gehen</b> — пешком, <b>fahren</b> — на транспорте: <i>mit dem Bus fahren</i>, но <i>zu Fuß gehen</i>.',
-    'Спросить дорогу: <i>Wie komme ich zum Bahnhof?</i> — <i>Gehen Sie geradeaus, dann links.</i>'
+    ['Дательный падеж: «кому?», «с кем?», «где?»', 'Этот падеж называется Dativ. Артикли меняются: der → <b>dem</b>, die → <b>der</b>, das → <b>dem</b>.', [
+      ['mit <b>dem</b> Bus', 'на автобусе'],
+      ['bei <b>der</b> Post', 'на почте']]],
+    ['Предлоги, после которых всегда дательный', '<b>aus, bei, mit, nach, seit, von, zu</b>. Их удобно выучить одной строчкой.', [
+      ['Nach <b>dem</b> Kurs gehe ich einkaufen.', 'После курса я иду за покупками.']]],
+    ['Предлог и артикль сливаются', 'zu dem → <b>zum</b>, zu der → <b>zur</b>, bei dem → <b>beim</b>, von dem → <b>vom</b>.', [
+      ['Wie komme ich <b>zum</b> Bahnhof?', 'Как мне пройти к вокзалу?'],
+      ['Ich gehe <b>zur</b> Apotheke.', 'Я иду в аптеку.']]],
+    ['gehen и fahren', '<b>gehen</b> — идти пешком, <b>fahren</b> — ехать на транспорте.', [
+      ['Ich <b>fahre</b> mit dem Bus.', 'Я еду на автобусе.'],
+      ['Gehen Sie geradeaus und dann links.', 'Идите прямо, а потом налево.']]]
   ],
   'a12-u4': [
-    'Imperativ: <b>Sie</b> — глагол + Sie (<i>Nehmen Sie …!</i>); <b>du</b> — основа без -st (<i>Komm! Bleib!</i>); <b>ihr</b> — форма настоящего без ihr (<i>Kommt!</i>).',
-    'В du-форме смена e → i остаётся (<i>Nimm! Hilf! Iss!</i>), а a → ä исчезает (<i>Fahr!</i>). sein → <i>Sei ruhig!</i>',
-    'Что болит: <i>Mein Kopf <b>tut</b> weh.</i> / <i>Meine Füße <b>tun</b> weh.</i> или <i>Ich habe Kopfschmerzen.</i>',
-    'Местоимения: Akk — mich, dich, ihn, sie, es, uns, euch; Dat — mir, dir, ihm, ihr, ihm, uns, euch, ihnen. <i>Kannst du <b>mir</b> helfen?</i> (helfen — с Dativ).',
-    'У врача — <i>beim Arzt</i>, к врачу — <i>zum Arzt</i>; <i>einen Termin brauchen / machen</i>.'
+    ['Как попросить или посоветовать', 'Вежливо: глагол + <b>Sie</b>. На «ты»: глагол без окончания -st (du nimmst → <b>nimm</b>).', [
+      ['Nehmen Sie das Medikament!', 'Принимайте лекарство!'],
+      ['Bleib im Bett!', 'Оставайся в постели!']]],
+    ['Что болит', '«Болеть» — <b>wehtun</b>. Болит одно — tut weh, болит несколько — tun weh. Можно сказать и через слово Schmerzen (боль).', [
+      ['Mein Kopf <b>tut weh</b>.', 'У меня болит голова.'],
+      ['Ich habe Bauchschmerzen.', 'У меня болит живот.']]],
+    ['Меня, мне, тебя, тебе', 'Местоимения меняются, как в русском: «меня» — <b>mich</b>, «мне» — <b>mir</b>, «тебя» — <b>dich</b>, «тебе» — <b>dir</b>.', [
+      ['Kannst du <b>mir</b> helfen?', 'Можешь мне помочь?'],
+      ['Ich sehe <b>dich</b>.', 'Я тебя вижу.']]],
+    ['У врача', '«У врача» — beim Arzt, «к врачу» — zum Arzt. Termin — запись на приём.', [
+      ['Ich brauche einen Termin beim Arzt.', 'Мне нужна запись к врачу.']]]
   ],
   'a12-u5': [
-    '<b>Perfekt</b> = haben/sein на 2-м месте + Partizip II в конце: <i>Ich <b>habe</b> eine Hose <b>gekauft</b>.</i>',
-    'Partizip II: слабые — ge…t (<i>gekauft, gemacht</i>), сильные — ge…en (<i>gegangen, getragen</i>). Без ge- — глаголы на -ieren и с be-, ver-, ge-: <i>bezahlt, gefallen</i>.',
-    '<b>sein</b> — с глаголами движения и смены состояния (gehen, fahren, kommen, bleiben): <i>Wir <b>sind</b> ins Kino gegangen.</i> Остальные — с haben.',
-    '<b>gefallen</b> (нравиться) — с Dativ, подлежащее — вещь: <i>Die Jacke gefällt mir. Die Schuhe gefallen mir.</i>',
-    'Погода — через <b>es</b>: <i>Es ist kalt. Es regnet. Es schneit.</i> Но: <i>Die Sonne scheint.</i>'
+    ['Прошедшее время в разговоре', 'Строится из двух частей: <b>haben</b> или <b>sein</b> на втором месте и особая форма глагола в конце. Время называется Perfekt.', [
+      ['Ich <b>habe</b> eine Hose <b>gekauft</b>.', 'Я купил(а) брюки.']]],
+    ['Как получить форму для конца предложения', 'Обычно: <b>ge-</b> + основа + <b>-t</b> (kaufen → gekauft). У неправильных глаголов: <b>ge-</b> + … + <b>-en</b> (gehen → gegangen) — их лучше выучить.', [
+      ['machen → gemacht', 'делать → сделал'],
+      ['schreiben → geschrieben', 'писать → написал']]],
+    ['haben или sein', 'С <b>sein</b> — глаголы движения (gehen, fahren, kommen) и bleiben. Почти все остальные — с haben.', [
+      ['Wir <b>sind</b> ins Kino gegangen.', 'Мы ходили в кино.']]],
+    ['«Нравится» — как в русском', 'Вещь нравится кому-то, поэтому «мне» — <b>mir</b>, «тебе» — <b>dir</b>.', [
+      ['Die Jacke gefällt <b>mir</b>.', 'Мне нравится куртка.']]],
+    ['Погода', 'О погоде говорят через <b>es</b> («оно»).', [
+      ['Es regnet. · Es ist kalt.', 'Идёт дождь. · Холодно.']]]
   ],
 
   /* ---------- A2.1 ---------- */
   'a21-u1': [
-    '<b>weil</b> (потому что) и <b>dass</b> (что) отправляют глагол в конец: <i>…, weil ich hier arbeiten <b>möchte</b>.</i> Перед союзом — запятая.',
-    'Придаточное впереди — главное начинается с глагола: <i>Weil ich krank bin, <b>bleibe</b> ich zu Hause.</i>',
-    '<b>denn</b> тоже «потому что», но порядок не меняет: <i>…, denn ich <b>möchte</b> hier arbeiten.</i>',
-    'Частые Partizip II: <i>gearbeitet, begonnen, gefunden, geschrieben, gesprochen, beworben</i>.',
-    'Профессии: женская форма на <b>-in</b> (<i>die Lehrerin</i>); о себе — без артикля: <i>Ich bin Ingenieur.</i> Работать в фирме — <i>bei einer Firma</i>.'
+    ['После weil и dass глагол уходит в конец', '<b>weil</b> — «потому что», <b>dass</b> — «что». Перед ними всегда ставится запятая.', [
+      ['Ich lerne Deutsch, weil ich hier arbeiten <b>möchte</b>.', 'Я учу немецкий, потому что хочу здесь работать.'],
+      ['Er sagt, dass die Besprechung um zehn <b>beginnt</b>.', 'Он говорит, что совещание начинается в десять.']]],
+    ['Если начать с weil', 'Тогда вторая часть начинается с глагола.', [
+      ['Weil ich krank bin, <b>bleibe</b> ich zu Hause.', 'Так как я болею, я остаюсь дома.']]],
+    ['denn — тоже «потому что»', 'Но после <b>denn</b> порядок слов обычный, глагол не уходит в конец.', [
+      ['Ich bleibe zu Hause, denn ich <b>bin</b> krank.', 'Я остаюсь дома, потому что болею.']]],
+    ['Профессии', 'Женская форма — с окончанием <b>-in</b>. Называя свою профессию, артикль не ставят.', [
+      ['Ich bin Lehrer<b>in</b>.', 'Я учительница.'],
+      ['Ich arbeite bei einer Firma.', 'Я работаю в фирме.']]]
   ],
   'a21-u2': [
-    '<b>Wechselpräpositionen</b>: an, auf, hinter, in, neben, über, unter, vor, zwischen.',
-    '<b>Куда?</b> (движение) → Akkusativ, <b>где?</b> (место) → Dativ: <i>Ich stelle die Lampe auf <b>den</b> Tisch.</i> — <i>Die Lampe steht auf <b>dem</b> Tisch.</i>',
-    'Пары: <b>stellen → stehen</b> (вертикально), <b>legen → liegen</b> (горизонтально), <b>setzen → sitzen</b>, <b>hängen → hängen</b>. Действие + Akk, состояние + Dat.',
-    'Слияния: in dem → <b>im</b>, in das → <b>ins</b>, an dem → <b>am</b>, an das → <b>ans</b>: <i>im Keller, ins Zimmer</i>.',
-    '<b>umziehen</b> (переезжать) — отделяемый: <i>Wir ziehen nächste Woche um.</i>'
+    ['Где? и Куда? — разные падежи', 'После in, an, auf, unter, über, vor, hinter, neben, zwischen: на вопрос «где?» артикль <b>dem/der</b>, на вопрос «куда?» — <b>den/die/das</b>.', [
+      ['Die Lampe steht auf <b>dem</b> Tisch.', 'Лампа стоит на столе (где?).'],
+      ['Ich stelle die Lampe auf <b>den</b> Tisch.', 'Я ставлю лампу на стол (куда?).']]],
+    ['Ставить — стоять, класть — лежать', '<b>stellen</b> — ставить / <b>stehen</b> — стоять; <b>legen</b> — класть / <b>liegen</b> — лежать; <b>hängen</b> — вешать и висеть.', [
+      ['Ich lege das Buch auf den Tisch.', 'Я кладу книгу на стол.'],
+      ['Das Bild hängt an der Wand.', 'Картина висит на стене.']]],
+    ['im и ins', 'in dem → <b>im</b> (где?), in das → <b>ins</b> (куда?).', [
+      ['Das Fahrrad steht <b>im</b> Keller.', 'Велосипед стоит в подвале.'],
+      ['Ich gehe <b>ins</b> Zimmer.', 'Я иду в комнату.']]],
+    ['Переезжать — umziehen', 'Приставка um- отделяется и уходит в конец.', [
+      ['Wir ziehen nächste Woche <b>um</b>.', 'Мы переезжаем на следующей неделе.']]]
   ],
   'a21-u3': [
-    'geben, schenken, zeigen, schicken, erklären: <b>кому</b> — Dativ (обычно человек), <b>что</b> — Akkusativ: <i>Ich schenke <b>meiner Mutter</b> Blumen.</i>',
-    'Два существительных — сначала Dativ, потом Akk. Akk-местоимение идёт первым: <i>Ich schenke <b>es</b> meiner Mutter.</i>',
-    'Прилагательное после der/die/das: <b>-e</b> в Nom ед. ч. (и Akk у die/das), иначе <b>-en</b>: <i>der neue Kollege, den neu<b>en</b> Kollegen, mit dem neu<b>en</b> Kollegen</i>.',
-    'Поздравить: <i>Ich gratuliere dir zum Geburtstag!</i> / <i>Herzlichen Glückwunsch!</i>',
-    'einladen и mitbringen — отделяемые: <i>Wir laden euch ein. Er bringt einen Kuchen mit.</i>'
+    ['Кому и что', 'При глаголах «дарить», «давать», «показывать» человек (кому?) стоит в дательном падеже, вещь (что?) — в винительном. Обычно сначала «кому», потом «что».', [
+      ['Ich schenke <b>meiner Mutter</b> Blumen.', 'Я дарю маме цветы.'],
+      ['Er hat <b>mir</b> ein Geschenk gegeben.', 'Он дал мне подарок.']]],
+    ['Прилагательное после der, die, das', 'В начальной форме окончание <b>-e</b>, почти во всех остальных случаях — <b>-en</b>.', [
+      ['der neu<b>e</b> Kollege', 'новый коллега'],
+      ['mit dem neu<b>en</b> Kollegen', 'с новым коллегой']]],
+    ['Поздравления', '', [
+      ['Ich gratuliere dir zum Geburtstag!', 'Поздравляю тебя с днём рождения!'],
+      ['Herzlichen Glückwunsch!', 'Сердечно поздравляю!']]],
+    ['Пригласить и принести', 'В <b>einladen</b> и <b>mitbringen</b> приставка отделяется.', [
+      ['Wir laden euch zur Party <b>ein</b>.', 'Мы приглашаем вас на вечеринку.']]]
   ],
   'a21-u4': [
-    'О прошлом sein и haben почти всегда в Präteritum: <i>ich war, du warst, wir waren</i>; <i>ich hatte, du hattest</i>.',
-    'Модальные в Präteritum — без умляута: <i>ich konnte, musste, wollte, durfte</i>.',
-    'Куда: <b>nach</b> + город, страна (<i>nach Italien</i>); <b>in</b> + страна с артиклем (<i>in die Türkei</i>); <i>in die Berge, ans Meer</i>; <b>zu</b> + человек, учреждение (<i>zum Flughafen</i>).',
-    'Где: <i>in Italien, in den Bergen, am Meer, bei Freunden</i>.',
-    'Домой — <i>nach Hause</i>, дома — <i>zu Hause</i>.'
+    ['«Был» и «имел»', 'О прошлом с глаголами sein и haben чаще говорят короткой формой: <b>war</b> (был), <b>hatte</b> (имел).', [
+      ['Letztes Jahr <b>waren</b> wir in Italien.', 'В прошлом году мы были в Италии.'],
+      ['Ich <b>hatte</b> keine Zeit.', 'У меня не было времени.']]],
+    ['«Мог», «должен был», «хотел»', 'konnte, musste, wollte — без точек над буквой.', [
+      ['Ich <b>musste</b> arbeiten.', 'Мне пришлось работать.']]],
+    ['Куда поехать', '<b>nach</b> — в город или страну без артикля; <b>in</b> — в страну с артиклем и в горы; <b>an</b> — к морю; <b>zu</b> — к человеку.', [
+      ['Ich fahre <b>nach</b> Berlin.', 'Я еду в Берлин.'],
+      ['Wir fahren <b>ans</b> Meer.', 'Мы едем на море.'],
+      ['Wir fahren <b>in die</b> Berge.', 'Мы едем в горы.']]],
+    ['Домой и дома', '', [
+      ['Ich gehe nach Hause.', 'Я иду домой.'],
+      ['Ich bin zu Hause.', 'Я дома.']]]
   ],
   'a21-u5': [
-    'Сравнение: <b>-er + als</b> (<i>billiger als</i>); равенство: <b>so … wie</b> (<i>so schön wie</i>).',
-    'Превосходная: <b>am …sten</b> (<i>am billigsten</i>); перед существительным — с артиклем: <i>das günstigste Angebot</i>.',
-    'Умляут у коротких слов: <i>alt → älter, groß → größer, jung → jünger</i>. Неправильные: <i>gut → besser → am besten, viel → mehr, gern → lieber</i>; <i>teuer → teurer</i>.',
-    '<b>welcher?</b> (какой из?) и <b>dieser</b> (этот) склоняются как der: <i>Welchen Rock nehmen Sie? Diese Jacke.</i>',
-    'В магазине: <i>Was kostet das? Kann ich mit Karte bezahlen? Kann ich das anprobieren?</i>'
+    ['«Больше, чем»', 'К прилагательному добавляем <b>-er</b>, «чем» — <b>als</b>.', [
+      ['Diese Jacke ist teur<b>er als</b> die andere.', 'Эта куртка дороже той.']]],
+    ['«Такой же, как»', '<b>so</b> + прилагательное + <b>wie</b>.', [
+      ['Der Rock ist <b>so</b> schön <b>wie</b> das Kleid.', 'Юбка такая же красивая, как платье.']]],
+    ['«Самый»', '<b>am …sten</b> или артикль + <b>…ste</b>. Короткие слова часто получают точки над гласной: groß → größer. Особый случай: gut → besser → am besten.', [
+      ['Das ist das günstig<b>ste</b> Angebot.', 'Это самое выгодное предложение.']]],
+    ['В магазине', '<b>welcher</b> — «какой (из)».', [
+      ['Welche Größe haben Sie?', 'Какой у вас размер?'],
+      ['Kann ich die Hose anprobieren?', 'Можно примерить брюки?']]]
   ],
 
   /* ---------- A2.2 ---------- */
   'a22-u1': [
-    '<b>als</b> — одно событие или период в прошлом: <i>Als ich ein Kind war, …</i>',
-    '<b>wenn</b> — повторяется, настоящее/будущее, а также «если»: <i>Wenn ich Zeit habe, …</i>; <b>wann</b> — только вопрос «когда?».',
-    'Косвенный вопрос: да/нет → <b>ob</b> (<i>Weißt du, ob er kommt?</i>), W-вопрос → то же W-слово (<i>Kannst du mir sagen, wo der Bahnhof ist?</i>). Глагол в конце.',
-    '<b>wissen</b> — знать факт (<i>ich weiß, er weiß</i>), <b>kennen</b> — знать человека, место.',
-    '<b>anrufen</b> + Akk: <i>Ich rufe <b>dich</b> an.</i> (не «dir»).'
+    ['als — «когда» про один раз в прошлом', '', [
+      ['<b>Als</b> ich ein Kind war, hatte ich kein Handy.', 'Когда я был ребёнком, у меня не было телефона.']]],
+    ['wenn — «когда» каждый раз, а ещё «если»', '', [
+      ['<b>Wenn</b> ich Zeit habe, lese ich die Zeitung.', 'Когда у меня есть время, я читаю газету.']]],
+    ['wann — только в вопросе', '', [
+      ['<b>Wann</b> kommst du?', 'Когда ты придёшь?']]],
+    ['Вопрос внутри предложения', 'Русское «ли» — это <b>ob</b>. Вопросительное слово (wo, wann…) остаётся. Глагол уходит в конец.', [
+      ['Weißt du, <b>ob</b> er die Nachricht bekommen <b>hat</b>?', 'Ты знаешь, получил ли он сообщение?'],
+      ['Kannst du mir sagen, wo der Bahnhof <b>ist</b>?', 'Можешь сказать, где вокзал?']]]
   ],
   'a22-u2': [
-    'Возвратное <b>sich</b> меняется по лицам: mich, dich, sich, uns, euch, sich: <i>Ich freue <b>mich</b>.</i>',
-    'Глагол учите вместе с предлогом: <i>sich freuen <b>auf</b></i> (будущее) / <i><b>über</b></i> (уже есть), <i>sich interessieren <b>für</b></i>, <i>sich ärgern <b>über</b></i>, <i>Angst haben <b>vor</b></i> + Dat.',
-    'Вопрос о вещи — <b>wo(r) + предлог</b>: <i>Worauf freust du dich?</i>; о человеке — предлог + wen/wem: <i>Auf wen wartest du?</i>',
-    'Ответ о вещи — <b>da(r) + предлог</b>: <i>Ich freue mich darauf.</i>',
-    'Чувства: <i>Ich bin glücklich / traurig / nervös / zufrieden.</i>'
+    ['«-ся» — отдельное слово', 'Русскому «-ся» соответствует слово <b>sich</b>, и оно меняется: ich freue <b>mich</b>, du freust <b>dich</b>, er freut <b>sich</b>, wir freuen <b>uns</b>.', [
+      ['Ich freue <b>mich</b>.', 'Я радуюсь.']]],
+    ['Глагол + свой предлог', 'Многие глаголы требуют определённого предлога, часто не такого, как в русском. Учите их парой.', [
+      ['Ich freue mich <b>auf</b> das Wochenende.', 'Я жду выходных.'],
+      ['Sie interessiert sich <b>für</b> Musik.', 'Она интересуется музыкой.'],
+      ['Ich habe Angst <b>vor</b> Hunden.', 'Я боюсь собак.']]],
+    ['«О чём?» и «об этом»', 'Вопрос о вещи: <b>wo</b> + предлог (worauf, worüber). Ответ: <b>da</b> + предлог (darauf, darüber).', [
+      ['<b>Worüber</b> ärgerst du dich?', 'Из-за чего ты злишься?'],
+      ['Ich freue mich <b>darauf</b>.', 'Я этого жду.']]],
+    ['Как описать чувства', '', [
+      ['Ich bin glücklich / traurig / nervös.', 'Я счастлив(а) / мне грустно / я нервничаю.']]]
   ],
   'a22-u3': [
-    '<b>Präteritum</b> — время письменных рассказов. Слабые: основа + <b>-te</b> (<i>machte, lernte</i>); сильные меняют корень (<i>ging, kam, fand, schrieb</i>).',
-    'В Präteritum ich и er одинаковые: <i>ich ging, er ging</i>.',
-    'В разговоре — Perfekt (<i>Ich habe die Prüfung bestanden</i>), в тексте — Präteritum (<i>Er bestand die Prüfung</i>).',
-    '<b>deshalb</b> (поэтому), <b>trotzdem</b> (всё равно), <b>sonst</b> (иначе) стоят на 1-м месте, глагол сразу после: <i>…, deshalb <b>konnte</b> sie nicht kommen.</i>',
-    'Не путайте: после <b>weil</b> глагол в конце, после <b>deshalb</b> — сразу.'
+    ['Прошедшее время для книг и рассказов', 'Называется Präteritum. Правильные глаголы получают <b>-te</b> (machen → machte), неправильные меняют корень (gehen → ging, kommen → kam).', [
+      ['Nach der Schule <b>machte</b> er eine Ausbildung.', 'После школы он учился профессии.']]],
+    ['В разговоре — Perfekt', 'Рассказывая о прошлом устно, обычно используют форму с haben/sein.', [
+      ['Ich habe die Prüfung bestanden.', 'Я сдал(а) экзамен.']]],
+    ['deshalb и trotzdem: глагол сразу после', '<b>deshalb</b> — поэтому, <b>trotzdem</b> — всё равно, <b>sonst</b> — иначе.', [
+      ['Sie war krank, deshalb <b>konnte</b> sie nicht kommen.', 'Она болела, поэтому не смогла прийти.'],
+      ['Es regnet, trotzdem <b>gehen</b> wir spazieren.', 'Идёт дождь, но мы всё равно идём гулять.']]],
+    ['Не путайте weil и deshalb', 'После weil глагол в конце, после deshalb — сразу.', [
+      ['…, weil sie krank <b>war</b>.', '…, потому что она болела.'],
+      ['…, deshalb <b>blieb</b> sie zu Hause.', '…, поэтому она осталась дома.']]]
   ],
   'a22-u4': [
-    'После ein/kein/mein окончание прилагательного показывает род, если артикль «молчит»: <i>ein schön<b>er</b> Wald, ein klein<b>es</b> Haus</i>.',
-    'Без артикля прилагательное берёт окончание der/die/das: <i>kalt<b>es</b> Wasser, frisch<b>e</b> Milch, mit kalt<b>em</b> Wasser</i>.',
-    '<b>werden</b>: ich werde, du wirst, er wird. «Становиться» — <i>Es wird kalt</i>; будущее — <i>Morgen wird es regnen</i>.',
-    '<b>man</b> + модальный — общие правила: <i>Man muss die Umwelt schützen.</i>',
-    'Выражения: <i>den Müll trennen, Energie sparen, die Umwelt schützen</i>.'
+    ['Прилагательное после ein', 'ein не показывает род, поэтому это делает прилагательное: мужской — <b>-er</b>, средний — <b>-es</b>.', [
+      ['ein schön<b>er</b> Wald', 'красивый лес'],
+      ['ein klein<b>es</b> Haus', 'маленький дом']]],
+    ['Прилагательное без артикля', 'Берёт окончание того артикля, который «пропал»: das → <b>-es</b>, die → <b>-e</b>.', [
+      ['Ich trinke gern kalt<b>es</b> Wasser.', 'Я люблю пить холодную воду.'],
+      ['frisch<b>e</b> Milch', 'свежее молоко']]],
+    ['werden — «становиться» и «будет»', '', [
+      ['Es <b>wird</b> kalt.', 'Становится холодно.'],
+      ['Morgen <b>wird</b> es regnen.', 'Завтра будет дождь.']]],
+    ['«Нужно» для всех', '<b>man</b> + muss = «нужно», «следует».', [
+      ['Man muss die Umwelt schützen.', 'Нужно защищать природу.']]]
   ],
   'a22-u5': [
-    'Вежливые просьбы: <i>Könnten Sie …? Würden Sie …? Ich hätte gern …</i> — звучит мягче, чем <i>Können Sie …?</i>',
-    '<b>zu + инфинитив</b> после vergessen, versuchen, anfangen, aufhören, Lust/Zeit haben, es ist wichtig: <i>Ich habe vergessen, den Ausweis mitzunehmen.</i>',
-    'У отделяемых глаголов zu встаёт внутрь: <i>mit<b>zu</b>nehmen, aus<b>zu</b>füllen, ab<b>zu</b>geben</i>.',
-    'После модальных глаголов <b>zu</b> не нужно: <i>Sie müssen das Formular ausfüllen.</i>',
-    'В учреждении: <i>einen Antrag stellen, ein Formular ausfüllen / unterschreiben / abgeben</i>.'
+    ['Вежливая просьба', '<b>Könnten Sie …?</b> и <b>Würden Sie …?</b> — как русское «не могли бы вы». <b>Ich hätte gern …</b> — «мне, пожалуйста».', [
+      ['Könnten Sie mir bitte helfen?', 'Не могли бы вы мне помочь?'],
+      ['Ich hätte gern ein Formular.', 'Мне, пожалуйста, бланк.']]],
+    ['Второй глагол с zu', 'После vergessen (забыть), versuchen (пытаться), anfangen (начинать) второй глагол идёт в конце с <b>zu</b>.', [
+      ['Ich habe vergessen, den Ausweis mit<b>zu</b>nehmen.', 'Я забыл(а) взять удостоверение.']]],
+    ['zu встаёт внутрь слова', 'Если у глагола отделяемая приставка, zu ставится между приставкой и глаголом.', [
+      ['ausfüllen → aus<b>zu</b>füllen', 'заполнить']]],
+    ['После «должен», «могу» — без zu', '', [
+      ['Sie müssen den Antrag ausfüllen.', 'Вы должны заполнить заявление.']]]
   ],
 
   /* ---------- B1.1 ---------- */
   'b11-u1': [
-    '<b>Relativsatz</b> уточняет существительное; глагол в конце: <i>die Stelle, <b>die</b> ich gesucht habe</i>.',
-    'Род местоимения — от существительного, падеж — от роли в придаточном: <i>der Kollege, <b>dem</b> ich geholfen habe</i> (helfen + Dat). Формы почти как у артикля; Dat мн. ч. — <b>denen</b>.',
-    '<b>um … zu</b> — цель, если субъект один: <i>Ich lerne Deutsch, um eine bessere Stelle zu finden.</i>',
-    '<b>damit</b> — если субъекты разные: <i>Ich erkläre es dir, damit du es verstehst.</i>',
-    'Резюме: <i>der Lebenslauf</i>, письмо — <i>das Anschreiben</i>; <i>sich <b>um</b> eine Stelle bewerben</i>.'
+    ['«Который» — der, die, das', 'Уточняющая часть предложения начинается со слова, похожего на артикль. Глагол в ней — в конце.', [
+      ['Das ist die Stelle, <b>die</b> ich gesucht habe.', 'Это то место, которое я искал(а).']]],
+    ['Какую форму «который» выбрать', 'Род берём от существительного, а падеж — какой нужен внутри уточняющей части.', [
+      ['Der Kollege, <b>dem</b> ich geholfen habe, ist nett.', 'Коллега, которому я помог(ла), приятный.']]],
+    ['«Чтобы», если человек один: um … zu', '', [
+      ['Ich lerne Deutsch, <b>um</b> eine bessere Stelle <b>zu</b> finden.', 'Я учу немецкий, чтобы найти работу получше.']]],
+    ['«Чтобы», если люди разные: damit', '', [
+      ['Ich erkläre es dir, <b>damit</b> du es verstehst.', 'Я объясню тебе, чтобы ты понял(а).']]]
   ],
   'b11-u2': [
-    '<b>Konjunktiv II</b> — нереальное: обычно <b>würde + инфинитив</b> (<i>Ich würde mehr lesen</i>). Свои формы: <i>wäre, hätte, könnte, müsste</i>.',
-    'Нереальное условие: <i>Wenn ich mehr Zeit <b>hätte</b>, <b>würde</b> ich mehr lesen.</i>',
-    'Совет: <i>An deiner Stelle würde ich …</i> / <i>Du solltest …</i>',
-    '<b>obwohl</b> — глагол в конец; <b>trotzdem</b> — глагол сразу после; <b>trotz</b> + Genitiv: <i>trotz des Regens</i>.',
-    'Мнение: <i>Meiner Meinung nach <b>ist</b> …</i> (глагол сразу после!), <i>Ich finde, dass …</i>, <i>Ich stimme dir zu.</i>'
+    ['Частица «бы»', 'Для мечты и нереального: <b>würde</b> + глагол. У частых глаголов есть свои формы: <b>wäre</b> (был бы), <b>hätte</b> (имел бы), <b>könnte</b> (мог бы). Это называется Konjunktiv II.', [
+      ['Ich <b>würde</b> gern reisen.', 'Я бы с удовольствием путешествовал(а).']]],
+    ['«Если бы»', '', [
+      ['Wenn ich mehr Zeit <b>hätte</b>, <b>würde</b> ich mehr lesen.', 'Если бы у меня было больше времени, я бы больше читал(а).'],
+      ['An deiner Stelle würde ich das nicht machen.', 'На твоём месте я бы так не делал(а).']]],
+    ['«Хотя»', 'После <b>obwohl</b> глагол уходит в конец, после <b>trotzdem</b> — стоит сразу.', [
+      ['Obwohl es teuer <b>ist</b>, kaufe ich es.', 'Хотя это дорого, я это куплю.'],
+      ['Es ist teuer, trotzdem <b>kaufe</b> ich es.', 'Это дорого, но я всё равно куплю.']]],
+    ['Как высказать мнение', '', [
+      ['Meiner Meinung nach ist das eine gute Lösung.', 'По-моему, это хорошее решение.'],
+      ['Ich stimme dir zu.', 'Я с тобой согласен.']]]
   ],
   'b11-u3': [
-    '<b>Vorgangspassiv</b> = werden + Partizip II: <i>Der Patient <b>wird</b> behandelt.</i> Прошедшее: <i><b>wurde</b> behandelt</i>.',
-    'Кто делает — <b>von</b> + Dat: <i>vom Arzt</i>. Пассив — когда важно действие, а не исполнитель.',
-    '<b>Genitiv</b>: м. и ср. — des/eines + <b>-(e)s</b> (<i>des Urlaubs</i>), ж. и мн. ч. — <b>der</b> (<i>der Erkältung</i>).',
-    '<b>wegen</b> (из-за), <b>während</b> (во время), <b>trotz</b> (несмотря на) + Genitiv: <i>wegen der Erkältung, während des Urlaubs</i>.',
-    'Здоровье: <i>Ich habe Fieber / eine Erkältung</i>, <i>sich erholen, sich verletzen</i>.'
+    ['Когда важно действие, а не кто его делает', '<b>werden</b> + форма глагола на ge-. Кто делает — через <b>von</b>. Это называется пассив.', [
+      ['Der Patient <b>wird</b> vom Arzt <b>behandelt</b>.', 'Пациента лечит врач.'],
+      ['Das Rezept <b>wurde</b> gestern <b>geschrieben</b>.', 'Рецепт выписали вчера.']]],
+    ['Родительный падеж: «чей?», «чего?»', 'Называется Genitiv. Мужской и средний род: <b>des</b> + -s у слова. Женский род и множественное число: <b>der</b>.', [
+      ['das Auto des Vater<b>s</b>', 'машина отца']]],
+    ['«Из-за», «во время», «несмотря на»', '<b>wegen</b>, <b>während</b>, <b>trotz</b> — после них родительный падеж.', [
+      ['Wegen der Erkältung bleibe ich zu Hause.', 'Из-за простуды я остаюсь дома.'],
+      ['Während des Urlaubs habe ich mich erholt.', 'Во время отпуска я отдохнул(а).']]],
+    ['Здоровье', '', [
+      ['Er hat sich beim Sport verletzt.', 'Он получил травму на тренировке.']]]
   ],
   'b11-u4': [
-    '<b>Plusquamperfekt</b> = hatte/war + Partizip II — «раньше другого прошлого»: <i>Ich hatte gegessen. Er war angekommen.</i>',
-    '<b>nachdem</b>: придаточное на шаг раньше главного: <i>Nachdem ich gegessen <b>hatte</b>, <b>ging</b> ich spazieren.</i>',
-    '<b>bevor</b> (прежде чем), <b>während</b> (пока), <b>seit</b> (с тех пор как), <b>bis</b> (пока не), <b>sobald</b> (как только) — глагол в конце.',
-    '<b>seit</b> + настоящее время для того, что длится до сих пор: <i>Seit ich hier wohne, fahre ich Rad.</i>',
-    '<i>sich erinnern <b>an</b></i> + Akk: <i>Ich erinnere mich an meine Kindheit.</i>'
+    ['«Ещё раньше» в прошлом', 'Если одно прошлое событие было раньше другого, для него берут <b>hatte/war</b> + форма на ge-. Время называется Plusquamperfekt.', [
+      ['Bevor er nach Deutschland kam, <b>hatte</b> er Englisch <b>gelernt</b>.', 'До переезда в Германию он уже выучил английский.']]],
+    ['nachdem — «после того как»', 'В части с nachdem — «ещё раньше», в главной части — обычное прошедшее.', [
+      ['Nachdem ich gegessen hatte, ging ich spazieren.', 'Поев, я пошёл гулять.']]],
+    ['Слова времени', '<b>bevor</b> — до того как, <b>während</b> — пока, <b>seit</b> — с тех пор как, <b>bis</b> — пока не, <b>sobald</b> — как только. Глагол после них — в конце.', [
+      ['Sobald ich Zeit habe, rufe ich dich an.', 'Как только будет время, я тебе позвоню.'],
+      ['Seit ich hier wohne, fahre ich Rad.', 'С тех пор как я здесь живу, я езжу на велосипеде.']]],
+    ['Вспоминать — sich erinnern an', '', [
+      ['Ich erinnere mich gern an meine Kindheit.', 'Я люблю вспоминать детство.']]]
   ],
   'b11-u5': [
-    '<b>n-Deklination</b>: многие мужские на -e (<i>der Kollege, der Kunde, der Junge</i>), на -ent, -ist (<i>der Student, der Polizist</i>), а также <i>der Mensch, der Herr, der Nachbar</i>.',
-    'У них <b>-(e)n</b> во всех формах, кроме Nom ед. ч.: <i>mit dem Kollege<b>n</b>, den Student<b>en</b></i>.',
-    'Прилагательные: после der/die/das — <b>-e</b> или <b>-en</b>; после ein/mein — окончание показывает род, если его нет у артикля; без артикля — окончания der/die/das.',
-    'После любого артикля в Dativ, Genitiv и во мн. ч. — всегда <b>-en</b>.',
-    'Глаголы: <i>teilnehmen <b>an</b></i> + Dat, <i>sich verabreden <b>mit</b></i>, <i>empfehlen</i> (er empfiehlt).'
+    ['Слова, которые получают -n', 'Некоторые слова мужского рода во всех формах, кроме начальной, получают <b>-n</b> или <b>-en</b>: слова на -e (der Kollege, der Kunde), на -ent и -ist (der Student), а также der Mensch, der Herr, der Nachbar.', [
+      ['Ich habe mit dem Kollege<b>n</b> gesprochen.', 'Я поговорил(а) с коллегой.']]],
+    ['Окончания прилагательных — три случая', '1) После der/die/das — <b>-e</b> или <b>-en</b>. 2) После ein/mein/kein прилагательное показывает род, если его не показал артикль. 3) Без артикля прилагательное берёт окончание артикля.', [
+      ['der gut<b>e</b> Film · ein gut<b>er</b> Film · gut<b>er</b> Kaffee', 'хороший фильм · хороший фильм · хороший кофе']]],
+    ['Почти всегда -en', 'После любого артикля в дательном падеже и во множественном числе.', [
+      ['mit dem neu<b>en</b> Freund', 'с новым другом'],
+      ['die neu<b>en</b> Bücher', 'новые книги']]],
+    ['Договориться и участвовать', '', [
+      ['Ich nehme an einem Kurs teil.', 'Я хожу на курс.'],
+      ['Wir haben uns für Samstag verabredet.', 'Мы договорились встретиться в субботу.']]]
   ],
 
   /* ---------- B1.2 ---------- */
   'b12-u1': [
-    'Пассив в Perfekt: <b>sein + Partizip II + worden</b> (не «geworden»): <i>Die Wahl ist verschoben worden.</i>',
-    'С модальным: модальный + Partizip II + <b>werden</b>: <i>Das Gesetz muss geändert werden.</i>',
-    '<b>Zustandspassiv</b> — результат: sein + Partizip II: <i>Die Tür ist geschlossen.</i> Процесс: <i>Die Tür wird geschlossen.</i>',
-    'Двойные союзы: <b>sowohl … als auch</b> (и … и), <b>weder … noch</b> (ни … ни), <b>entweder … oder</b>, <b>nicht nur … sondern auch</b>.',
-    '<b>je … desto</b>: <i>Je mehr ich lerne, desto besser spreche ich.</i> После je глагол в конце, после desto — сразу.'
+    ['Пассив в прошедшем', '<b>sein</b> + форма на ge- + <b>worden</b>. Внимание: именно worden, а не geworden.', [
+      ['Die Wahl ist verschoben <b>worden</b>.', 'Выборы перенесли.']]],
+    ['Пассив с «нужно», «можно»', 'Модальный глагол + форма на ge- + <b>werden</b> в конце.', [
+      ['Das Gesetz muss geändert <b>werden</b>.', 'Закон нужно изменить.']]],
+    ['Процесс или результат', '<b>wird</b> + форма на ge- — что-то происходит; <b>ist</b> + форма на ge- — результат уже есть.', [
+      ['Die Tür <b>wird</b> geschlossen.', 'Дверь закрывают.'],
+      ['Die Tür <b>ist</b> geschlossen.', 'Дверь закрыта.']]],
+    ['Парные союзы', '<b>sowohl … als auch</b> — и … и; <b>weder … noch</b> — ни … ни; <b>entweder … oder</b> — или … или.', [
+      ['Ich spreche sowohl Deutsch als auch Englisch.', 'Я говорю и по-немецки, и по-английски.'],
+      ['Er hat weder Zeit noch Geld.', 'У него нет ни времени, ни денег.']]],
+    ['«Чем …, тем …»', '<b>je</b> … <b>desto</b>.', [
+      ['Je mehr ich lerne, desto besser spreche ich.', 'Чем больше я учусь, тем лучше говорю.']]]
   ],
   'b12-u2': [
-    '<b>Partizip I</b> (инфинитив + -d) — действие идёт: <i>das spielende Kind</i>. <b>Partizip II</b> — сделано: <i>das reparierte Gerät</i>.',
-    'Причастия перед существительным склоняются как прилагательные.',
-    '<b>lassen</b> = «поручить сделать»: <i>Ich lasse mein Auto reparieren</i> (ремонтирую не сам). А ещё «оставить, позволить»: <i>Lass mich schlafen!</i>',
-    'lassen: <i>du lässt, er lässt</i>; Perfekt — с инфинитивом: <i>Ich habe das Auto reparieren lassen.</i>',
-    'Существительные на <b>-ung</b> всегда женского рода: <i>die Entwicklung, die Erfindung, die Forschung</i>.'
+    ['Форма глагола как прилагательное', 'Форма на ge- значит «сделанный», форма глагол + <b>-d</b> — «делающий». Окончания у них — как у прилагательных.', [
+      ['das reparier<b>te</b> Gerät', 'отремонтированный прибор'],
+      ['das spielen<b>d</b>e Kind', 'играющий ребёнок']]],
+    ['lassen — «отдать сделать»', 'Когда делаете не вы сами, а кто-то по вашей просьбе.', [
+      ['Ich lasse mein Auto reparieren.', 'Я отдаю машину в ремонт.']]],
+    ['lassen — «оставить», «дать»', '', [
+      ['Lass mich schlafen!', 'Дай мне поспать!'],
+      ['Ich lasse das Handy zu Hause.', 'Я оставляю телефон дома.']]],
+    ['Слова на -ung — всегда женского рода', '', [
+      ['entwickeln → die Entwicklung', 'развивать → развитие'],
+      ['erfinden → die Erfindung', 'изобретать → изобретение']]]
   ],
   'b12-u3': [
-    'Relativsatz с предлогом — предлог стоит перед местоимением: <i>die Bank, <b>bei der</b> ich ein Konto habe</i>.',
-    '<b>dessen</b> (м./ср.) / <b>deren</b> (ж./мн.) = «чей»: <i>die Firma, deren Produkte …</i>',
-    '<b>was</b> — после alles, etwas, nichts, das: <i>Alles, was du sagst, ist richtig.</i>; <b>wo</b> — после места: <i>die Stadt, wo ich wohne</i>.',
-    'Konjunktiv II прошедшего = <b>hätte/wäre + Partizip II</b> — сожаление о прошлом: <i>Wenn ich das gewusst hätte, hätte ich weniger ausgegeben.</i>',
-    'Деньги: <i>Geld überweisen / ausgeben / sparen</i>; <i>jemandem Geld leihen</i> — одолжить кому-то.'
+    ['«Который» с предлогом', 'Предлог ставится перед «который».', [
+      ['Das ist die Bank, <b>bei der</b> ich ein Konto habe.', 'Это банк, в котором у меня счёт.']]],
+    ['«Чей» — dessen и deren', '<b>dessen</b> — для мужского и среднего рода, <b>deren</b> — для женского рода и множественного числа.', [
+      ['die Firma, <b>deren</b> Produkte ich kaufe', 'фирма, чьи продукты я покупаю']]],
+    ['was и wo', 'После alles (всё), etwas (что-то), nichts (ничего) — <b>was</b>. После места — <b>wo</b>.', [
+      ['Alles, <b>was</b> du sagst, ist richtig.', 'Всё, что ты говоришь, правильно.'],
+      ['die Stadt, <b>wo</b> ich wohne', 'город, где я живу']]],
+    ['«Если бы тогда…»', 'Нереальное в прошлом: <b>hätte</b> или <b>wäre</b> + форма на ge-. Так выражают сожаление.', [
+      ['Wenn ich das gewusst hätte, hätte ich weniger ausgegeben.', 'Если бы я это знал(а), я бы потратил(а) меньше.']]]
   ],
   'b12-u4': [
-    '<b>Konjunktiv I</b> — пересказ чужих слов (новости, официальный текст): <i>er habe, er komme, er könne</i>; sein → <i>er sei</i>.',
-    '<i>Er sagt, er sei krank.</i> — говорящий не ручается за правду. В разговоре проще: <i>Er sagt, dass er krank ist.</i>',
-    'Если форма K I совпадает с настоящим (<i>sie haben</i>), берут K II: <i>Sie sagen, sie hätten keine Zeit.</i>',
-    '<b>ohne … zu</b> (не делая), <b>statt … zu</b> (вместо того чтобы): <i>Sie ging, ohne etwas zu sagen.</i> При разных субъектах — <b>ohne dass</b>.',
-    '<i>sich gewöhnen <b>an</b></i> + Akk, <i>sich unterscheiden <b>von</b></i> + Dat: <i>Ich habe mich an das Wetter gewöhnt.</i>'
+    ['Пересказ чужих слов', 'В новостях и официальных текстах используют особую форму: <b>er sei</b>, <b>er habe</b>, <b>er komme</b>. Так автор показывает, что лишь передаёт чужие слова. Это называется Konjunktiv I.', [
+      ['Er sagt, er <b>sei</b> krank.', 'Он говорит, что (якобы) болен.']]],
+    ['В разговоре — проще', '', [
+      ['Er sagt, dass er krank ist.', 'Он говорит, что болен.']]],
+    ['«Не делая» и «вместо того чтобы»', '<b>ohne … zu</b> и <b>statt … zu</b>.', [
+      ['Sie ging, ohne etwas zu sagen.', 'Она ушла, ничего не сказав.'],
+      ['Statt zu lernen, sieht er fern.', 'Вместо того чтобы учиться, он смотрит телевизор.']]],
+    ['Привыкнуть — sich gewöhnen an', '', [
+      ['Ich habe mich an das Wetter gewöhnt.', 'Я привык(ла) к погоде.']]]
   ],
   'b12-u5': [
-    '<b>Futur I</b> = werden + инфинитив в конце: <i>Ich werde in Berlin studieren.</i>',
-    'О планах чаще говорят настоящим временем: <i>Nächstes Jahr studiere ich in Berlin.</i>',
-    '<b>werden + wohl</b> — предположение о настоящем: <i>Er wird wohl zu Hause sein.</i> (наверное, он дома).',
-    'Устойчивые сочетания учите целиком: <i>eine Entscheidung treffen, eine Frage stellen, Rücksicht nehmen auf, zur Verfügung stehen, in Frage kommen</i>.',
-    '<b>vorhaben</b> (планировать) — отделяемый: <i>Was hast du am Wochenende vor?</i>'
+    ['Будущее время', '<b>werden</b> на втором месте + глагол в конце.', [
+      ['Ich <b>werde</b> nächstes Jahr in Berlin <b>studieren</b>.', 'В следующем году я буду учиться в Берлине.']]],
+    ['Часто хватает настоящего', 'Если и так понятно, что речь о будущем (morgen, nächstes Jahr), немцы говорят в настоящем времени.', [
+      ['Morgen fahre ich nach Hamburg.', 'Завтра я еду в Гамбург.']]],
+    ['«Наверное» — werden + wohl', '', [
+      ['Er wird wohl zu Hause sein.', 'Он, наверное, дома.']]],
+    ['Сочетания, которые учат целиком', 'Глагол в них не переводится дословно, поэтому запоминайте всю пару.', [
+      ['eine Entscheidung treffen', 'принять решение'],
+      ['eine Frage stellen', 'задать вопрос']]],
+    ['Планировать — vorhaben', 'Приставка vor- отделяется.', [
+      ['Was hast du am Wochenende <b>vor</b>?', 'Что ты планируешь на выходные?']]]
   ]
 };

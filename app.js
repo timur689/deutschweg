@@ -478,13 +478,21 @@
     }).join('')}</div>`;
   }
 
-  /* Короткая теория урока из theory.js; данные — доверенный HTML курса, как и тексты правил. */
+  /* Короткая теория урока из theory.js: [заголовок, объяснение, [[немецкий, перевод], …]].
+     Заголовок, объяснение и немецкий пример — доверенный HTML курса (как тексты правил), перевод экранируется. */
+  function theoryExample([de, ru]) {
+    return `<li><span class="th-de">${de}</span><span class="th-ru">${esc(ru)}</span></li>`;
+  }
+  function theoryItem([title, text, examples]) {
+    const ex = Array.isArray(examples) && examples.length ? `<ul class="th-ex">${examples.map(theoryExample).join('')}</ul>` : '';
+    return `<li class="th-item"><h3>${title}</h3>${text ? `<p>${text}</p>` : ''}${ex}</li>`;
+  }
   function theoryPanel(unitId) {
     const items = (window.DE_THEORY || {})[unitId];
     if (!Array.isArray(items) || !items.length) return '';
-    return `<section class="panel rule-body theory">
+    return `<section class="panel theory">
         <h2>Теория урока</h2>
-        <ul>${items.map((x) => `<li>${x}</li>`).join('')}</ul>
+        <ol class="th-list">${items.map(theoryItem).join('')}</ol>
         <p class="small muted">Подробно, с таблицами и тестом — в правилах шага 2.</p>
       </section>`;
   }
