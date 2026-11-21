@@ -1,4 +1,4 @@
-/* Методичка: список шпаргалок по уровням и страница шпаргалки. Данные — guide-data.js. */
+/* Шпаргалки: список шпаргалок по уровням и страница шпаргалки. Данные — guide-data.js. */
 (() => {
   'use strict';
   const D = window.DW;
@@ -18,8 +18,9 @@
 
   function renderList() {
     return `<div class="stack">
-      <div class="stack" style="gap:6px"><h1>Методичка</h1>
-        <p class="muted">${GUIDE.length} шпаргалок о том, как что определять: род, падеж, место глагола, окончания, время. В каждой — короткий вывод, пошаговый алгоритм и примеры. Подробности и тесты — в связанных правилах.</p></div>
+      ${D.subnav('grammar', 'guide')}
+      <div class="stack" style="gap:6px"><h1>Шпаргалки</h1>
+        <p class="muted">Короткие подсказки «как выбрать»: der, die или das, какой падеж, куда ставить глагол, какой предлог. В каждой — вывод в одну строку, шаги и примеры.</p></div>
       <div class="levels lv-wide" role="group" aria-label="Перейти к уровню">
         ${LEVELS.map((l) => `<a class="lv" href="#gd-lvl-${l.id}"><b>${l.id}</b></a>`).join('')}
       </div>
@@ -42,8 +43,8 @@
     const prev = GUIDE[i - 1];
     const next = GUIDE[i + 1];
     return `<div class="stack">
-      <a class="back" href="#guide">← Методичка</a>
-      <div class="stack" style="gap:6px"><p class="eyebrow">${g.lvl} · Методичка</p><h1>${esc(g.t)}</h1></div>
+      <a class="back" href="#guide">← Все шпаргалки</a>
+      <div class="stack" style="gap:6px"><p class="eyebrow">${g.lvl} · Шпаргалка</p><h1>${esc(g.t)}</h1></div>
       <section class="panel rule-body guide-body">${withTables(g.b)}</section>
       ${relatedRules(g)}
       <div class="row" style="justify-content:space-between">
@@ -67,6 +68,6 @@
   D.register({
     views: { guide: renderList, gd: (id) => renderTopic(id || '') },
     prefixes: [['gd-', 'gd']],
-    nav: { guide: 'guide', gd: 'guide' },
+    nav: { guide: 'rules', gd: 'rules' },
   });
 })();

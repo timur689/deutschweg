@@ -395,9 +395,9 @@
       ${heroCard(next)}
       ${due ? `<a class="cta-due" href="#review"><span>Повторить ${due} ${plural(due, 'слово', 'слова', 'слов')}<small>Пора освежить — так они останутся в памяти</small></span>${ARROW}</a>` : ''}
       <section class="wall" aria-label="Статистика">
-        <a class="pane link" href="#stats"><span class="pane-title">Серия</span><div class="row" style="gap:8px">${FLAME}<span class="num big">${s}<small>${plural(s, 'день', 'дня', 'дней')}</small></span></div></a>
-        <a class="pane link" href="#stats"><div class="fill f-gold" style="--fill:${goalPct}%"></div><span class="pane-title">Сегодня</span><span class="num big">${today}<small>/ ${DAILY_GOAL}</small></span></a>
-        <a class="pane link" href="#stats"><div class="fill f-der" style="--fill:${Math.max(wordsPct, started ? 4 : 0)}%"></div><span class="pane-title">Слова в работе</span><span class="num big">${started}<small>/ ${WORDS.length}</small></span></a>
+        <a class="pane link" href="#stats"><span class="pane-title">Дней подряд</span><div class="row" style="gap:8px">${FLAME}<span class="num big">${s}<small>${plural(s, 'день', 'дня', 'дней')}</small></span></div></a>
+        <a class="pane link" href="#stats"><div class="fill f-gold" style="--fill:${goalPct}%"></div><span class="pane-title">Ответов сегодня</span><span class="num big">${today}<small>/ ${DAILY_GOAL}</small></span></a>
+        <a class="pane link" href="#stats"><div class="fill f-der" style="--fill:${Math.max(wordsPct, started ? 4 : 0)}%"></div><span class="pane-title">Слов изучаю</span><span class="num big">${started}<small>/ ${WORDS.length}</small></span></a>
       </section>
 
       <div class="sec-head"><h2>Уровень</h2><span class="small muted">${Math.round(levelProgress(L) * 100)}% пройдено</span></div>
@@ -414,7 +414,10 @@
 
       <section class="panel stack" style="gap:12px">
         <h3>Как заниматься</h3>
-        <p class="small">Урок — это три шага: <b>слова</b> с артиклем и мн. ч., <b>грамматика</b> с коротким тестом и <b>предложения</b>, которые вы собираете сами. Наборы «Слова уровня» добавляют лексику, которую нужно знать на этом уровне. Всё изученное попадает в <b>повторение</b> через 1, 3, 7, 16, 35 и 90 дней. Хватит и 10–15 минут в день.</p>
+        <ol class="small how-to"><li><b>Проходите уроки по порядку.</b> В каждом уроке три шага: выучить слова, прочитать правило и пройти тест, собрать предложения.</li>
+          <li><b>Каждый день открывайте «Повторить».</b> Приложение само напомнит слова, которые пора освежить.</li>
+          <li><b>Хватит 10–15 минут в день.</b> Цель дня — ${DAILY_GOAL} ответов.</li></ol>
+        <p class="small muted">Цвет слова подсказывает артикль:</p>
         <div class="legend"><div><b class="art-der">der</b>мужской род</div><div><b class="art-die">die</b>женский род и мн. ч.</div><div><b class="art-das">das</b>средний род</div></div>
       </section>
 
@@ -592,12 +595,12 @@
     </div>`;
   }
 
-  /* Методичка (guide-data.js): шпаргалки, связанные с правилом. */
+  /* Шпаргалки (guide-data.js), связанные с правилом. */
   const guideList = () => (Array.isArray(window.DE_GUIDE) ? window.DE_GUIDE : []);
   function guideLinksFor(ruleId) {
     const items = guideList().filter((g) => Array.isArray(g.r) && g.r.includes(ruleId));
     if (!items.length) return '';
-    return `<section class="stack" style="gap:10px"><h2>Шпаргалка в методичке</h2><div class="rule-links">${items.map((g) => `<a class="rule-link" href="#gd-${g.id}"><span><span class="eyebrow">${g.lvl} · Методичка</span><br><b>${esc(g.t)}</b></span><span class="pill">Как определить</span></a>`).join('')}</div></section>`;
+    return `<section class="stack" style="gap:10px"><h2>Шпаргалка по теме</h2><div class="rule-links">${items.map((g) => `<a class="rule-link" href="#gd-${g.id}"><span><span class="eyebrow">${g.lvl} · Шпаргалка</span><br><b>${esc(g.t)}</b></span><span class="pill">Как определить</span></a>`).join('')}</div></section>`;
   }
 
   function quizItem(q, qi) {
@@ -637,7 +640,8 @@
     const levels = ui.rulesLevel === 'all' ? LEVELS : LEVELS.filter((l) => l.id === ui.rulesLevel);
     const passed = Object.values(RULE).filter((r) => (state.rules[r.id] || 0) >= PASS_RATIO).length;
     return `<div class="stack">
-      <div class="stack" style="gap:6px"><h1>Грамматика по уровням</h1><p class="muted">${Object.keys(RULE).length} правил от A1.1 до B1.2, пройдено ${passed}. Каждое правило — с таблицами, примерами и тестом.</p></div>
+      ${subnav('grammar', 'rules')}
+      <div class="stack" style="gap:6px"><h1>Правила</h1><p class="muted">Пройдено ${passed} из ${Object.keys(RULE).length}. В каждом правиле — объяснение, примеры и короткий тест. Короткие подсказки «как выбрать» — во вкладке «Шпаргалки».</p></div>
       <div class="levels lv-wide" role="group" aria-label="Фильтр по уровню">
         <button class="lv" data-act="rules-level" data-id="all" aria-pressed="${ui.rulesLevel === 'all'}"><b>Все</b></button>
         ${LEVELS.map((l) => `<button class="lv" data-act="rules-level" data-id="${l.id}" aria-pressed="${ui.rulesLevel === l.id}"><b>${l.id}</b></button>`).join('')}
@@ -679,7 +683,8 @@
   /* ---------- вид: словарь ---------- */
   function renderDict() {
     return `<div class="stack">
-      <div class="stack" style="gap:6px"><h1>Словарь</h1><p class="muted">Все ${WORDS.length} слов курса с артиклями и множественным числом.</p></div>
+      ${subnav('words', 'dict')}
+      <div class="stack" style="gap:6px"><h1>Словарь</h1><p class="muted">Все ${WORDS.length} слов курса. Нажмите на значок звука, чтобы послушать слово. Перевести своё слово или фразу — во вкладке «Переводчик».</p></div>
       <div class="toolbar">
         <input id="dictSearch" type="search" placeholder="Поиск по-немецки или по-русски" value="${esc(ui.dictQuery)}" aria-label="Поиск">
         <select id="dictLevel" aria-label="Уровень"><option value="all">Все уровни</option><option value="my" ${ui.dictLevel === 'my' ? 'selected' : ''}>Мои слова</option>${LEVELS.map((l) => `<option value="${l.id}" ${ui.dictLevel === l.id ? 'selected' : ''}>${l.id}</option>`).join('')}</select>
@@ -1224,6 +1229,16 @@
     state.ext = { ...asObj(state.ext), mist: rest };
   }
 
+  /* Переключатель между соседними экранами одной вкладки. items: [[hash, подпись], …]. */
+  const SUBNAV = {
+    grammar: [['rules', 'Правила'], ['guide', 'Шпаргалки']],
+    words: [['dict', 'Словарь'], ['translate', 'Переводчик']],
+  };
+  function subnav(group, active) {
+    const items = SUBNAV[group] || [];
+    return `<nav class="subnav" aria-label="Раздел">${items.map(([h, t]) => `<a href="#${h}"${h === active ? ' aria-current="page"' : ''}>${t}</a>`).join('')}</nav>`;
+  }
+
   /* ---------- API для расширений ---------- */
   window.DW = Object.freeze({
     LEVELS, UNITS, UNIT, RULE, WORD, WORDS, PACK, LEVEL_PACKS, DAILY_GOAL, KNOWN_BOX, STANDALONE,
@@ -1234,7 +1249,7 @@
     exportState: () => JSON.stringify(state),
     checkSentence, markSentence, hintWords, sentenceForm,
     esc, shuffle, plural, dayKey, addDays, startOfDay, wordHtml, wordExtra, wordStatus, speak, speakBtn,
-    countAnswer, commit, render,
+    countAnswer, commit, render, subnav,
     countResult: (ok) => { countAnswer(); if (ok) { const k = dayKey(); state.ok = { ...asObj(state.ok), [k]: (asObj(state.ok)[k] || 0) + 1 }; } }, streak, dueWords, startedWords, startWordSession,
     noteMistake: (key, data) => { noteMistake(key, data); commit(); },
     clearMistake: (key) => { clearMistake(key); commit(); },

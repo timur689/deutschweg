@@ -333,15 +333,19 @@ a.lv { text-decoration: none; color: inherit; }
 /* ---------- nav: a floating frosted bar ---------- */
 .nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; pointer-events: none;
   padding: 0 max(8px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); }
-.nav-in { pointer-events: auto; max-width: 620px; margin: 0 auto; height: var(--nav-h); display: grid; grid-template-columns: repeat(7, 1fr); align-items: center; gap: 2px; padding: 0 6px;
+.nav-in { pointer-events: auto; max-width: 620px; margin: 0 auto; height: var(--nav-h); display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; gap: 2px; padding: 0 6px;
   border-radius: 999px; background: var(--bg-72); -webkit-backdrop-filter: blur(24px) saturate(170%); backdrop-filter: blur(24px) saturate(170%); box-shadow: var(--shadow-lift); }
 .navbtn { position: relative; min-width: 0; height: 54px; border-radius: 999px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
   font: 700 11px var(--font-display); letter-spacing: -0.01em; color: var(--muted); text-decoration: none; white-space: nowrap; transition: color .3s var(--ease), background-color .3s var(--ease); }
 .navbtn svg { width: 22px; height: 22px; }
-@media (max-width: 440px) { .nav-in { padding: 0 4px; gap: 0; } .navbtn { font-size: 9.5px; letter-spacing: -0.03em; } .navbtn svg { width: 21px; height: 21px; } }
-@media (max-width: 380px) { .navbtn { font-size: 8.5px; letter-spacing: -0.04em; } .navbtn svg { width: 20px; height: 20px; } }
-@media (max-width: 340px) { .navbtn { font-size: 7.5px; } }
+@media (max-width: 440px) { .nav-in { padding: 0 4px; gap: 0; } .navbtn { font-size: 10.5px; } }
+@media (max-width: 340px) { .navbtn { font-size: 9.5px; letter-spacing: -0.02em; } }
 .navbtn[aria-current="page"] { color: var(--ink); background: var(--glass-strong); }
+/* Переключатель внутри вкладки: «Правила | Шпаргалки», «Словарь | Переводчик». */
+.subnav { display: flex; gap: 6px; padding: 5px; border-radius: 999px; background: var(--glass-soft); box-shadow: inset 0 0 0 1px var(--line); align-self: flex-start; max-width: 100%; }
+.subnav a { flex: 1 1 auto; text-align: center; text-decoration: none; padding: 9px 18px; border-radius: 999px; font: 700 14px var(--font-display); color: var(--muted); white-space: nowrap; transition: background-color .3s var(--ease), color .3s var(--ease); }
+.subnav a[aria-current="page"] { background: var(--solid); color: var(--on-solid); }
+.how-to { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px; }
 .badge { position: absolute; top: 4px; left: calc(50% + 6px); min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--gold); color: #2A1704;
   font: 800 10.5px/18px var(--font-display); text-align: center; box-shadow: 0 0 10px var(--gold-glow); }
 
@@ -556,19 +560,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
     </a>
     <a class="navbtn" href="#rules" data-nav="rules">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7M9 11.5h5"/></svg>
-      Правила
-    </a>
-    <a class="navbtn" href="#guide" data-nav="guide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>
-      Методичка
+      Грамматика
     </a>
     <a class="navbtn" href="#dict" data-nav="dict">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg>
       Словарь
-    </a>
-    <a class="navbtn" href="#translate" data-nav="translate">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
-      Перевод
     </a>
     <a class="navbtn" href="#practice" data-nav="practice">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="12" r="3.2" fill="var(--der)"/><circle cx="12" cy="12" r="3.2" fill="var(--die)"/><circle cx="18.5" cy="12" r="3.2" fill="var(--das)"/></svg>
