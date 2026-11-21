@@ -127,6 +127,50 @@ window.DE_GUIDE = [
 <tr><td><b>Sie</b> с большой буквы в середине</td><td>вы (вежливо)</td><td><i>Kommen <b>Sie</b>?</i></td></tr></table>
 <p class="small muted">В начале предложения «Sie» всегда с большой буквы — тогда «вы» или «они» понятно только из ситуации.</p>`,
   },
+  {
+    id: 'kleine-woerter', lvl: 'A1', t: 'zum, um, am, im, in, an: какое слово когда',
+    s: 'Время, место, направление, цель и слитные формы',
+    r: ['a12-zeitangaben', 'a12-praep-dativ', 'a21-lokal', 'a21-wechselpraep'],
+    b: `<p class="gd-key"><b>Коротко:</b> сначала решите, о чём фраза: о <b>времени</b>, о <b>месте</b> («где?»), о <b>направлении</b> («куда?») или о <b>цели</b>. Потом помните: <b>am, im, zum, zur, beim, vom, ins, ans</b> — это предлог, слитый с артиклем. А <b>um</b> — отдельный предлог, а не слияние.</p>
+<p><b>Шаг 1. Разберите слитную форму.</b> Всё, что кончается на <b>-m</b> или <b>-r</b>, содержит артикль в Dativ; на <b>-s</b> — в Akkusativ.</p>
+<table><tr><th>Слитно</th><th>Полностью</th><th>Пример</th></tr>
+<tr><td><b>am</b></td><td>an dem</td><td>am Montag, am Fenster, am Meer</td></tr>
+<tr><td><b>im</b></td><td>in dem</td><td>im Mai, im Kino (где?)</td></tr>
+<tr><td><b>ans</b></td><td>an das</td><td>ans Meer, ans Fenster (куда?)</td></tr>
+<tr><td><b>ins</b></td><td>in das</td><td>ins Kino, ins Bett (куда?)</td></tr>
+<tr><td><b>zum</b></td><td>zu dem (der- и das-слова)</td><td>zum Arzt, zum Bahnhof, zum Essen</td></tr>
+<tr><td><b>zur</b></td><td>zu der (die-слова)</td><td>zur Schule, zur Arbeit, zur Post</td></tr>
+<tr><td><b>beim / vom</b></td><td>bei dem / von dem</td><td>beim Arzt, vom Bahnhof</td></tr></table>
+<p class="small muted">zum или zur выбирают по роду: <i>der Arzt → zum Arzt, das Kino → zum Kino, die Bank → zur Bank</i>. Во множественном слияния нет: <i>zu den Eltern</i>.</p>
+<p><b>Шаг 2. Если фраза о времени — задайте вопрос.</b></p>
+<table><tr><th>Вопрос</th><th>Слово</th><th>Пример</th></tr>
+<tr><td>Во сколько?</td><td><b>um</b></td><td>um 8 Uhr, um halb drei, um Mitternacht</td></tr>
+<tr><td>Примерно во сколько?</td><td><b>gegen</b></td><td>gegen 8 Uhr (около восьми)</td></tr>
+<tr><td>В какой день, какую часть дня?</td><td><b>am</b></td><td>am Montag, am Abend, am 3. Mai, am Wochenende</td></tr>
+<tr><td>В каком месяце, сезоне?</td><td><b>im</b></td><td>im Mai, im Winter, im Jahr 2025</td></tr>
+<tr><td>Ночью</td><td><b>in der</b></td><td>in der Nacht</td></tr>
+<tr><td>Через сколько?</td><td><b>in</b> + Dat</td><td>in zwei Tagen, in einer Stunde</td></tr>
+<tr><td>Сколько времени назад?</td><td><b>vor</b> + Dat</td><td>vor zwei Tagen, vor einem Jahr</td></tr>
+<tr><td>Как долго уже (и сейчас тоже)?</td><td><b>seit</b> + Dat</td><td>seit einem Jahr, seit Montag</td></tr>
+<tr><td>Начиная с (в будущем)?</td><td><b>ab</b></td><td>ab Montag, ab 9 Uhr</td></tr>
+<tr><td>До какого момента?</td><td><b>bis</b></td><td>bis Freitag, bis 18 Uhr</td></tr>
+<tr><td>К какому событию, на что?</td><td><b>zum / zur</b></td><td>zum Frühstück, zum Geburtstag, zur Hochzeit</td></tr></table>
+<p><b>Ловушка:</b> русское «в» — это не всегда <i>in</i>. «В 8 часов» — <b>um</b> 8 Uhr, «в понедельник» — <b>am</b> Montag, «в мае» — <b>im</b> Mai. А «через неделю» — <b>in</b> einer Woche, не <i>nach</i>: <i>nach</i> значит «после чего-то» (<i>nach dem Essen</i>).</p>
+<p><b>Шаг 3. Если фраза о месте — где? или куда?</b> Где → Dativ (<i>im, am, beim</i>). Куда → Akkusativ (<i>ins, ans</i>) или <i>zum / zur</i>.</p>
+<table><tr><th>Смысл</th><th>Где?</th><th>Куда?</th></tr>
+<tr><td><b>in</b> — внутри</td><td>im Kino, in der Stadt</td><td>ins Kino, in die Stadt</td></tr>
+<tr><td><b>an</b> — у края, у стены, у воды</td><td>am Fenster, an der Wand, am Meer</td><td>ans Fenster, an die Wand, ans Meer</td></tr>
+<tr><td><b>auf</b> — на поверхности</td><td>auf dem Tisch</td><td>auf den Tisch</td></tr>
+<tr><td><b>zu / bei</b> — к человеку, к точке</td><td>beim Arzt, bei Anna</td><td>zum Arzt, zu Anna, zum Bahnhof</td></tr></table>
+<p class="small muted"><i>ins Kino</i> — идёте внутрь смотреть фильм; <i>zum Kino</i> — идёте к зданию (например, встретиться у входа). Подробнее — в шпаргалке «Куда и где: nach, in, zu, an, auf, bei».</p>
+<p><b>Шаг 4. Другие частые значения zum и um.</b></p>
+<ul><li><b>zum + глагол с большой буквы</b> — «для чего»: <i>Papier zum Schreiben</i> (бумага для письма), <i>zum Mitnehmen</i> (с собой, навынос).</li>
+<li><b>zum в устойчивых выражениях:</b> <i>zum Beispiel</i> (например), <i>zum Glück</i> (к счастью), <i>zum ersten Mal</i> (впервые), <i>zum Schluss</i> (в конце).</li>
+<li><b>um</b> — вокруг: <i>um den Tisch</i>, <i>um die Ecke</i> (за углом); на сколько изменилось: <i>um 5 Euro teurer</i>; <i>es geht um …</i> (речь идёт о …).</li>
+<li><b>um … zu</b> + инфинитив — «чтобы»: <i>Ich lerne Deutsch, um in Berlin zu arbeiten.</i> Подробнее — шпаргалка «um … zu или damit».</li>
+<li><b>am + -sten</b> — «лучше всего, больше всего»: <i>am besten, am liebsten, am schnellsten</i>.</li></ul>
+<p class="small muted">Слияния нет, если после предлога <i>ein</i>, <i>mein</i> и т. п. или если на артикль падает ударение: <i>zu einem Arzt, in dem Haus, in dem ich wohne</i>.</p>`,
+  },
 
   /* ───────────── A2 ───────────── */
   {
