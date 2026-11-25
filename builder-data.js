@@ -6,10 +6,11 @@
    Части пишутся со строчной буквы (кроме существительных и имён) — заглавную первой части ставит программа.
    Роли: s — кто/что, v — глагол (спрягаемый), e — конец (инфинитив, причастие, приставка), f — глагол в конце придаточного,
    q — вопросительное слово, c — союз или связка, z — запятая, t — когда, k — почему, m — как, p — где/куда,
-   o — что/кого, d — кому, n — отрицание, r — остальное. */
+   o — что/кого, d — кому, n — отрицание, r — остальное.
+   rules — id правил курса (data-*.js) для блока «Что здесь важно»; у предложения могут быть свои дополнительные rules. */
 window.DE_BUILDER = [
   /* ===================== A1 ===================== */
-  { id: 'base', lvl: 'A1', t: 'Простое предложение', de: 'Subjekt + Verb',
+  { id: 'base', lvl: 'A1', t: 'Простое предложение', de: 'Subjekt + Verb', rules: ['a11-wortstellung', 'a11-praesens'],
     rule: 'Главное правило немецкого: <b>спрягаемый глагол стоит на 2-м месте</b>. Сначала — кто действует, потом глагол, потом всё остальное.',
     h: { s: 'Позиция 1 — кто действует: ich, du, er, sie, wir, Anna…', v: 'Позиция 2 — глагол. Окончание по подлежащему: ich -e, du -st, er/sie/es -t, wir/sie/Sie -en, ihr -t.' },
     items: [
@@ -27,7 +28,7 @@ window.DE_BUILDER = [
         x: [['heißt', 'heißt — для du и er/sie/es. С ich: heiße.'], ['mich', 'По-немецки говорят «я зовусь» — ich heiße, без mich.']] },
     ] },
 
-  { id: 'inv', lvl: 'A1', t: 'Время в начале', de: 'Inversion',
+  { id: 'inv', lvl: 'A1', t: 'Время в начале', de: 'Inversion', rules: ['a11-wortstellung', 'a12-zeitangaben'],
     rule: 'На 1-е место можно поставить не только подлежащее, но и время или место. <b>Глагол всё равно остаётся на 2-м месте</b>, а подлежащее переходит на 3-е — сразу после глагола.',
     h: { t: 'Позиция 1 — когда: heute, morgen, jetzt, am Montag… Это целиком одно место.', v: 'Позиция 2 — глагол, даже если впереди время.', s: 'Подлежащее идёт сразу после глагола — на 3-м месте.' },
     items: [
@@ -43,7 +44,7 @@ window.DE_BUILDER = [
         x: [['bin', 'Голод по-немецки «имеют»: ich habe Hunger, а не ich bin.'], ['hat', 'hat — для er/sie/es. С ich: habe.']] },
     ] },
 
-  { id: 'wq', lvl: 'A1', t: 'Вопрос со словом «где, что, как…»', de: 'W-Frage',
+  { id: 'wq', lvl: 'A1', t: 'Вопрос со словом «где, что, как…»', de: 'W-Frage', rules: ['a11-w-fragen'],
     rule: 'Вопросительное слово — <b>на 1-м месте</b>, глагол — <b>на 2-м</b>, подлежащее — сразу после глагола.',
     h: { q: 'Позиция 1 — вопросительное слово: wer, was, wo, wohin, woher, wann, wie, warum.', v: 'Позиция 2 — глагол.', s: 'Подлежащее — после глагола.' },
     items: [
@@ -61,7 +62,7 @@ window.DE_BUILDER = [
         x: [['wo', 'wo — «где?». «Куда?» — wohin.'], ['fährt', 'fährt (с умлаутом) — для er/sie/es. С ihr: fahrt.']] },
     ] },
 
-  { id: 'yn', lvl: 'A1', t: 'Вопрос «да или нет»', de: 'Ja/Nein-Frage',
+  { id: 'yn', lvl: 'A1', t: 'Вопрос «да или нет»', de: 'Ja/Nein-Frage', rules: ['a11-w-fragen'],
     rule: 'Если вопросительного слова нет, <b>глагол идёт на 1-е место</b>, подлежащее — сразу за ним.',
     h: { v: 'Позиция 1 — глагол: так немецкий показывает, что это вопрос.', s: 'Подлежащее — сразу после глагола.' },
     items: [
@@ -77,11 +78,11 @@ window.DE_BUILDER = [
         x: [['hast', 'Усталость по-немецки — состояние: du bist müde.'], ['ist', 'ist — для er/sie/es. С du: bist.']] },
     ] },
 
-  { id: 'neg', lvl: 'A1', t: 'Отрицание: nicht и kein', de: 'Negation',
+  { id: 'neg', lvl: 'A1', t: 'Отрицание: nicht и kein', de: 'Negation', rules: ['a11-negation'],
     rule: '<b>kein</b> — перед существительным без артикля или с ein/eine: kein Auto, keine Zeit, keinen Kaffee. <b>nicht</b> — во всех остальных случаях: перед прилагательным и местом, а если отрицается всё действие — в конце.',
     h: { n: 'Отрицание: kein — для существительного (вместо ein или без артикля), nicht — для остального.' },
     items: [
-      { ru: 'Я не пью кофе.', w: [['ich', 's'], ['trinke', 'v'], ['keinen Kaffee', 'n', 'der Kaffee, Akkusativ → keinen']],
+      { rules: ['a11-akkusativ'], ru: 'Я не пью кофе.', w: [['ich', 's'], ['trinke', 'v'], ['keinen Kaffee', 'n', 'der Kaffee, Akkusativ → keinen']],
         x: [['nicht Kaffee', 'Перед существительным без артикля — kein, а не nicht.'], ['kein Kaffee', 'der Kaffee — мужской род, после trinken Akkusativ → keinen.']] },
       { ru: 'Он сегодня не работает.', w: [['er', 's'], ['arbeitet', 'v'], ['heute', 't'], ['nicht', 'n', 'отрицается всё действие → nicht в конце']],
         x: [['kein', 'kein ставят только перед существительным. Здесь его нет → nicht.']] },
@@ -95,7 +96,7 @@ window.DE_BUILDER = [
         x: [['nicht Zeit', 'Перед существительным без артикля — kein: keine Zeit.'], ['kein Zeit', 'die Zeit — женский род: keine.']] },
     ] },
 
-  { id: 'modal', lvl: 'A1', t: 'Модальный глагол + инфинитив', de: 'Modalverb',
+  { id: 'modal', lvl: 'A1', t: 'Модальный глагол + инфинитив', de: 'Modalverb', rules: ['a12-modal', 'a12-satzklammer'],
     rule: 'Модальный глагол (können, müssen, wollen, möchten, dürfen, sollen) стоит <b>на 2-м месте</b>, а второй глагол — <b>в инфинитиве в самом конце</b>. Получается «рамка».',
     h: { v: 'Позиция 2 — модальный глагол. У ich и er/sie/es он без окончания: ich kann, er muss.', e: 'Самый конец — второй глагол в начальной форме (инфинитив).' },
     items: [
@@ -113,7 +114,7 @@ window.DE_BUILDER = [
         x: [['steht auf', 'После модального глагола — инфинитив целиком: aufstehen.'], ['müssen', 'Она одна → muss.']] },
     ] },
 
-  { id: 'trenn', lvl: 'A1', t: 'Глагол с приставкой', de: 'Trennbare Verben',
+  { id: 'trenn', lvl: 'A1', t: 'Глагол с приставкой', de: 'Trennbare Verben', rules: ['a12-trennbar', 'a12-satzklammer'],
     rule: 'У глаголов вроде <b>aufstehen, anrufen, einkaufen, fernsehen, mitkommen</b> приставка отделяется: глагол стоит на 2-м месте, а <b>приставка уходит в самый конец</b>.',
     h: { v: 'Глагол без приставки — на 2-м месте (в вопросе да/нет — на 1-м).', e: 'Самый конец — отделённая приставка: auf, an, ein, fern, mit…' },
     items: [
@@ -132,7 +133,7 @@ window.DE_BUILDER = [
     ] },
 
   /* ===================== A2 ===================== */
-  { id: 'perf', lvl: 'A2', t: 'Прошедшее время Perfekt', de: 'haben/sein + Partizip II',
+  { id: 'perf', lvl: 'A2', t: 'Прошедшее время Perfekt', de: 'haben/sein + Partizip II', rules: ['a12-perfekt', 'a21-perfekt'],
     rule: 'Perfekt = <b>haben или sein на 2-м месте</b> + <b>Partizip II в конце</b>. sein — для движения и смены состояния (gehen, fahren, kommen, aufstehen), почти все остальные — с haben.',
     h: { v: 'Позиция 2 — haben или sein в нужной форме.', e: 'Самый конец — Partizip II: ge…t (слабые) или ge…en (сильные).' },
     items: [
@@ -150,7 +151,7 @@ window.DE_BUILDER = [
         x: [['geseht', 'sehen — сильный глагол: gesehen.'], ['der Film', 'Смотрели что? — Akkusativ: den Film.']] },
     ] },
 
-  { id: 'dat', lvl: 'A2', t: 'Кому и что', de: 'Dativ + Akkusativ',
+  { id: 'dat', lvl: 'A2', t: 'Кому и что', de: 'Dativ + Akkusativ', rules: ['a21-zwei-objekte', 'a12-dativ', 'a12-dativ-verben'],
     rule: 'Кому — <b>Dativ</b> (dem, der, den…n; mir, dir, ihm, ihr). Что — <b>Akkusativ</b> (den, die, das; einen, eine, ein). Если оба — существительные, <b>сначала кому, потом что</b>.',
     h: { d: 'Кому? — дательный падеж (Dativ): dem / der / den…n, mir, dir, ihm, ihr, uns.', o: 'Что? — винительный падеж (Akkusativ): den / die / das, einen / eine / ein.' },
     items: [
@@ -168,7 +169,7 @@ window.DE_BUILDER = [
         x: [['mich', 'gefallen требует Dativ: mir.'], ['gefallt', 'gefallen: er/sie/es gefällt — с умлаутом.']] },
     ] },
 
-  { id: 'tekamolo', lvl: 'A2', t: 'Порядок: когда, почему, как, где', de: 'TeKaMoLo',
+  { id: 'tekamolo', lvl: 'A2', t: 'Порядок: когда, почему, как, где', de: 'TeKaMoLo', rules: ['a11-wortstellung', 'a21-lokal'],
     rule: 'После глагола уточнения обычно идут так: <b>когда → почему → как → где/куда</b> (Temporal, Kausal, Modal, Lokal — «TeKaMoLo»).',
     h: { t: 'Когда — раньше остальных уточнений.', k: 'Почему — после времени.', m: 'Как / с кем / на чём — после «почему».', p: 'Где / куда — ближе к концу.' },
     items: [
@@ -178,13 +179,13 @@ window.DE_BUILDER = [
         x: [['ins Restaurant', 'ins — «в ресторан» (куда?). Едим где? — im Restaurant.']] },
       { ru: 'Она работает с понедельника по пятницу в офисе.', w: [['sie', 's'], ['arbeitet', 'v'], ['von Montag bis Freitag', 't'], ['im Büro', 'p']],
         x: [['ins Büro', 'Работает где? — im Büro. ins — куда.']] },
-      { ru: 'Сегодня он из-за дождя едет на работу на машине.', w: [['er', 's'], ['fährt', 'v'], ['heute', 't'], ['wegen des Regens', 'k', 'почему? — wegen + Genitiv'], ['mit dem Auto', 'm'], ['zur Arbeit', 'p', 'на работу — zu der → zur']],
+      { rules: ['b11-genitiv'], ru: 'Сегодня он из-за дождя едет на работу на машине.', w: [['er', 's'], ['fährt', 'v'], ['heute', 't'], ['wegen des Regens', 'k', 'почему? — wegen + Genitiv'], ['mit dem Auto', 'm'], ['zur Arbeit', 'p', 'на работу — zu der → zur']],
         x: [['in die Arbeit', 'На работу — zur Arbeit.']] },
       { ru: 'Вчера я был с другом в кино.', w: [['ich', 's'], ['war', 'v', 'sein в прошедшем: ich war'], ['gestern', 't'], ['mit einem Freund', 'm', 'с кем? — mit + Dativ'], ['im Kino', 'p']],
         x: [['ins Kino', 'Был где? — im Kino. ins Kino — куда.'], ['mit einen Freund', 'mit всегда с Dativ: mit einem Freund.']] },
     ] },
 
-  { id: 'neben', lvl: 'A2', t: 'Придаточное: weil, dass, wenn, ob', de: 'Nebensatz',
+  { id: 'neben', lvl: 'A2', t: 'Придаточное: weil, dass, wenn, ob', de: 'Nebensatz', rules: ['a21-weil-dass', 'a22-ob'],
     rule: 'После союзов <b>weil, dass, wenn, ob</b> спрягаемый глагол <b>уходит в самый конец</b>. Перед союзом — <b>запятая</b>.',
     h: { z: 'Перед союзом придаточного — запятая.', c: 'Союз открывает придаточное: weil (потому что), dass (что), wenn (если/когда), ob (ли).', f: 'Спрягаемый глагол придаточного — в самый конец.' },
     items: [
@@ -192,7 +193,7 @@ window.DE_BUILDER = [
         x: [['denn', 'После denn порядок обычный: denn ich bin krank. Здесь глагол в конце → weil.']] },
       { ru: 'Я думаю, что он прав.', w: [['ich', 's'], ['denke', 'v'], [',', 'z'], ['dass', 'c', 'союз «что» — dass, с двумя s'], ['er', 's'], ['recht', 'm'], ['hat', 'f', '«быть правым» — recht haben']],
         x: [['das', 'das — артикль или «это». Союз «что» — dass.']] },
-      { ru: 'Мы пойдём плавать, если погода будет хорошая.', w: [['wir', 's'], ['gehen', 'v'], ['schwimmen', 'e', 'gehen + инфинитив: schwimmen gehen'], [',', 'z'], ['wenn', 'c'], ['das Wetter', 's'], ['gut', 'm'], ['ist', 'f']],
+      { rules: ['a22-wenn-als'], ru: 'Мы пойдём плавать, если погода будет хорошая.', w: [['wir', 's'], ['gehen', 'v'], ['schwimmen', 'e', 'gehen + инфинитив: schwimmen gehen'], [',', 'z'], ['wenn', 'c'], ['das Wetter', 's'], ['gut', 'm'], ['ist', 'f']],
         x: [['wann', 'wann — вопрос «когда?». «Если» — wenn.']] },
       { ru: 'Я не знаю, придёт ли он.', w: [['ich', 's'], ['weiß', 'v', 'wissen: ich weiß'], ['nicht', 'n'], [',', 'z'], ['ob', 'c', '«ли» — ob'], ['er', 's'], ['kommt', 'f']],
         x: [['wenn', '«Ли» в косвенном вопросе — ob.'], ['weiße', 'wissen неправильный: ich weiß, без окончания.']] },
@@ -203,7 +204,7 @@ window.DE_BUILDER = [
     ] },
 
   /* ===================== B1 ===================== */
-  { id: 'front', lvl: 'B1', t: 'Придаточное в начале', de: 'Nebensatz zuerst',
+  { id: 'front', lvl: 'B1', t: 'Придаточное в начале', de: 'Nebensatz zuerst', rules: ['a22-wenn-als', 'b11-obwohl'],
     rule: 'Придаточное может стоять первым. Тогда оно <b>целиком занимает позицию 1</b>, поэтому после запятой сразу идёт <b>глагол главного предложения</b>, а потом подлежащее.',
     h: { c: 'Начинаем с союза: wenn, weil, obwohl, als…', f: 'Глагол придаточного — в конце придаточного.', z: 'Запятая отделяет придаточное.', v: 'Сразу после запятой — глагол главного предложения: придаточное уже заняло позицию 1.', s: 'Подлежащее главного — после глагола.' },
     items: [
@@ -219,7 +220,7 @@ window.DE_BUILDER = [
         x: [['ich lese', 'После придаточного сначала глагол, потом подлежащее: lese ich.']] },
     ] },
 
-  { id: 'relativ', lvl: 'B1', t: 'Придаточное «который»', de: 'Relativsatz',
+  { id: 'relativ', lvl: 'B1', t: 'Придаточное «который»', de: 'Relativsatz', rules: ['b11-relativ', 'b12-relativ-erw'],
     rule: 'Относительное местоимение (der, die, das, den, dem…) берёт <b>род и число</b> от слова, к которому относится, а <b>падеж</b> — по роли в придаточном. Глагол придаточного — <b>в конце</b>, придаточное выделяется запятыми.',
     h: { z: 'Запятая отделяет придаточное.', c: '«Который»: род как у слова перед запятой, падеж — по роли в придаточном.', f: 'Глагол придаточного — в самый конец.', v: 'Глагол главного предложения на своём месте: позиция 2 считается без придаточного.' },
     items: [
@@ -235,7 +236,7 @@ window.DE_BUILDER = [
         x: [['mit die', 'mit всегда с Dativ: mit der.']] },
     ] },
 
-  { id: 'zu', lvl: 'B1', t: 'Инфинитив с zu и um … zu', de: 'Infinitiv mit zu',
+  { id: 'zu', lvl: 'B1', t: 'Инфинитив с zu и um … zu', de: 'Infinitiv mit zu', rules: ['a22-zu-inf', 'b11-um-zu-damit'],
     rule: 'После выражений вроде <b>Zeit haben, vergessen, es ist schwer</b> идёт инфинитив с <b>zu в самом конце</b>. «Чтобы» при одном и том же исполнителе — <b>um … zu</b>. У глаголов с приставкой zu встаёт внутрь: an<b>zu</b>rufen.',
     h: { z: 'Запятая перед оборотом с zu.', c: 'um — начало оборота «чтобы».', e: 'Самый конец — zu + инфинитив (у глаголов с приставкой zu внутри).' },
     items: [
@@ -251,7 +252,7 @@ window.DE_BUILDER = [
         x: [['für', 'Цель с глаголом — um … zu.']] },
     ] },
 
-  { id: 'passiv', lvl: 'B1', t: 'Пассив', de: 'werden + Partizip II',
+  { id: 'passiv', lvl: 'B1', t: 'Пассив', de: 'werden + Partizip II', rules: ['b11-passiv'],
     rule: 'Пассив показывает, что <b>с предметом что-то делают</b>. <b>werden на 2-м месте</b> (ich werde, du wirst, er wird, wir werden), <b>Partizip II в конце</b>. Кем — von + Dativ.',
     h: { v: 'Позиция 2 — werden в нужной форме (в прошлом — wurde).', e: 'Самый конец — Partizip II.' },
     items: [

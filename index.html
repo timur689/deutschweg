@@ -442,6 +442,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 .sb-warn { margin-top: 4px; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--bad) 13%, transparent); color: var(--ink); font-size: 14px; }
 .sb-notes { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
 .sb-rule summary { font: 700 15px var(--font-display); }
+.sb-rule-inline { border-radius: 18px; background: var(--glass-soft); box-shadow: inset 0 0 0 1px var(--line); }
+.sb-rule-inline summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; list-style: none; font-weight: 400; }
+.sb-rule-inline summary::-webkit-details-marker { display: none; }
+.sb-rule-inline summary b { font: 700 15px/1.3 var(--font-display); }
+.sb-rule-inline[open] summary .pill { background: var(--solid); color: var(--on-solid); }
+.sb-rule-inline .rule-body { padding: 4px 16px 12px; font-size: 14.5px; }
+.sb-rule-inline > .btn { margin: 0 16px 14px; }
+.sb-back { align-self: flex-start; }
 .sb-rule p { margin-top: 8px; }
 .sb-rule:not([open]) { padding-block: 14px; }
 

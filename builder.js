@@ -255,10 +255,28 @@
       </form>`;
   }
 
+  /** Правила курса к предложению: сначала свои у предложения, потом общие для схемы. */
+  function rulesFor(entry) {
+    const ids = [...(entry.item.rules || []), ...(BY[entry.pid].rules || [])];
+    return [...new Set(ids)].map((id) => D.RULE[id]).filter(Boolean);
+  }
+
+  /* Правило можно раскрыть прямо здесь или открыть целиком с тестом (оттуда есть путь назад). */
+  function rulesBlock(entry) {
+    const list = rulesFor(entry);
+    if (!list.length) return '';
+    const body = (r) => r.b.replace(/<table>/g, '<div class="tbl"><table>').replace(/<\/table>/g, '</table></div>');
+    return `<div class="stack sb-rules" style="gap:8px"><span class="eyebrow">Правило по теме</span>${list.map((r) => `<details class="sb-rule-inline">
+        <summary><span><span class="eyebrow">${esc(r.level)}</span><br><b>${esc(r.t)}</b></span><span class="pill">Читать</span></summary>
+        <div class="rule-body">${body(r)}</div>
+        <a class="btn small" href="#rule-${r.id}">Открыть правило с тестом →</a></details>`).join('')}</div>`;
+  }
+
   function summary() {
     const item = current().item;
     const text = sentence(item);
     const notes = item.w.filter(([, , n]) => n).map(([t, , n]) => `<li><b lang="de">${esc(t)}</b> — ${esc(n)}</li>`).join('');
+    const rules = rulesBlock(current());
     const last = s.i + 1 >= s.items.length;
     const verdict = s.gaveUp ? 'Вот как правильно' : s.errs ? `Получилось, неудачных попыток: ${s.errs}` : 'Отлично, с первого раза!';
     const mine = s.order && s.draft ? `<span class="small">Ваш вариант: <span lang="de">${esc(s.draft)}</span></span>` : '';
@@ -267,7 +285,7 @@
         <span class="verdict">${verdict}</span>${mine}
         <span class="answer"><span lang="de">${esc(text)}</span> ${D.speakBtn(text)}</span>
         <span class="small muted">${esc(item.ru)}</span>${comma}</div>
-      ${notes ? `<section class="stack" style="gap:6px"><span class="eyebrow">Что здесь важно</span><ul class="sb-notes">${notes}</ul></section>` : ''}
+      ${notes || rules ? `<section class="stack" style="gap:10px"><span class="eyebrow">Что здесь важно</span>${notes ? `<ul class="sb-notes">${notes}</ul>` : ''}${rules}</section>` : ''}
       <div class="s-actions"><span></span><button class="btn primary" data-act="sb-next" id="sbNext">${last ? 'Итог' : 'Дальше'} ↵</button></div>`;
   }
 
@@ -374,6 +392,7 @@
         if (btn) { ev.preventDefault(); btn.click(); }
       },
       afterRender: () => {
+        if (location.hash.startsWith('#rule-') && s && !s.done) { addBackLink(); return; }
         if (!location.hash.startsWith('#sb-') || !s || s.solved || s.done) return;
         const input = document.getElementById('sbInput');
         if (input && (s.draft || s.i > 0 || s.errs)) { input.focus({ preventScroll: true }); input.setSelectionRange(input.value.length, input.value.length); }
@@ -381,6 +400,15 @@
     },
   });
 
-  /* Новый заход в схему начинается заново. */
-  window.addEventListener('hashchange', () => { if (s && location.hash !== `#sb-${s.id}`) s = null; });
+  /* Ссылка «назад к упражнению» на странице правила, открытой из разбора. */
+  function addBackLink() {
+    const app = document.getElementById('app');
+    if (!app || document.getElementById('sbBack')) return;
+    app.insertAdjacentHTML('afterbegin', `<a class="btn small sb-back" id="sbBack" href="#sb-${s.id}">← Вернуться к упражнению</a>`);
+  }
+
+  /* Новый заход в схему начинается заново; переход к правилу раунд не сбрасывает. */
+  window.addEventListener('hashchange', () => {
+    if (s && !location.hash.startsWith('#rule-') && location.hash !== `#sb-${s.id}`) s = null;
+  });
 })();
