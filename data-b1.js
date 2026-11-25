@@ -290,7 +290,7 @@ window.DE_LEVELS.push({
 <li><b>Предположение о настоящем</b> (с wohl, wahrscheinlich): <i>Er <b>wird wohl</b> krank <b>sein</b>.</i> — Он, наверное, болен.</li></ul>
 <p>Очень часто будущее выражают простым <b>Präsens + слово времени</b>: <i>Morgen fahre ich nach Berlin.</i></p>
 <p>В придаточном werden — в конце: <i>…, dass er bald kommen <b>wird</b>.</i></p>`,
-      q: [["Ich ___ dich morgen anrufen.", ["werde", "wird", "würde"], 0], ["Wo ist Paul? — Er ___ wohl im Büro sein.", ["wird", "ist", "werde"], 0], ["Ich glaube, dass es morgen regnen ___.", ["wird", "werden", "würde regnen"], 0]]
+      q: [["Ich ___ dich morgen anrufen.", ["werde", "wird", "würde"], 0], ["Wo ist Paul? — Er ___ wohl im Büro sein.", ["wird", "ist", "werde"], 0], ["Ich glaube, dass es morgen regnen ___.", ["wird", "werden", "wirst"], 0]]
     },
     {
       id: "b12-nvv", t: "Устойчивые сочетания: существительное + глагол",

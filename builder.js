@@ -40,7 +40,14 @@
   /* ---------- сравнение текста ---------- */
   const words = (text) => text.toLowerCase().replace(/[.,!?;:«»"„“]/g, ' ').split(/\s+/).filter(Boolean);
   const fold = (w) => w.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss');
-  const startsWith = (list, at, part) => part.every((w, i) => list[at + i] === w);
+  const foldE = (w) => w.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+  /** Умлаут потерян совсем: «mude» вместо «müde» («muede» уже засчитывается через same). */
+  const umlautSlip = (w, t) => fold(w) === fold(t);
+  /** Совпадение слова; ae/oe/ue/ss вместо ä/ö/ü/ß засчитываются, как в уроках. */
+  const same = (w, t) => t !== undefined && (w === t || foldE(w) === foldE(t));
+  const startsWith = (list, at, part) => part.every((w, i) => same(w, list[at + i]));
+  /** Без ä/ö/ü/ß там, где они нужны. */
+  const plainSpelling = (item, typed) => slots(item).flatMap((p) => p.w).some((w, i) => typed[i] !== undefined && w !== typed[i]);
   const capital = (t) => t.charAt(0).toUpperCase() + t.slice(1);
   const joinParts = (parts) => parts.map(([t]) => t).join(' ').replace(/ ,/g, ',');
 
@@ -83,10 +90,10 @@
     const later = list.slice(m.done + 1).find((p) => startsWith(m.typed, m.at, p.w));
     if (later) return `«${later.t}» — это «${roleLabel(later.role).toLowerCase()}», эта часть идёт позже. ${need}`;
     const rest = m.typed.slice(m.at);
-    const wrong = want.w.map((w, i) => [w, rest[i]]).find(([w, t]) => t !== undefined && t !== w);
+    const wrong = want.w.map((w, i) => [w, rest[i]]).find(([w, t]) => t !== undefined && !same(w, t));
     if (wrong) {
       const [w, t] = wrong;
-      if (fold(w) === fold(t)) return `Почти: в «${t}» проверьте умлаут или ß.${tip}`;
+      if (umlautSlip(w, t)) return `Почти: в «${t}» проверьте умлаут или ß.${tip}`;
       if (w.length >= TYPO_MIN_LEN && distance(w, t) <= TYPO_MAX_DIST) return `Почти: проверьте форму или написание «${t}».${tip}`;
     }
     return brief ? `Это слово сюда не подходит.${tip}` : `${need}${tip}`;
@@ -94,8 +101,8 @@
 
   /** Те же слова, что в образце, но в другом порядке. */
   function sameWords(item, typed) {
-    const right = slots(item).flatMap((p) => p.w).sort();
-    const mine = [...typed].sort();
+    const right = slots(item).flatMap((p) => p.w).map(foldE).sort();
+    const mine = typed.map(foldE).sort();
     return right.length === mine.length && right.every((w, i) => w === mine[i]);
   }
 
@@ -117,7 +124,7 @@
     return p ? shuffle(p.items.map((item) => ({ item, pid: p.id }))) : [];
   }
 
-  const freshItem = () => ({ draft: '', errs: 0, fb: null, peek: false, solved: false, order: false, noComma: false, gaveUp: false });
+  const freshItem = () => ({ draft: '', errs: 0, fb: null, peek: false, solved: false, order: false, noComma: false, plain: false, gaveUp: false });
 
   function start(id) {
     const items = roundItems(id);
@@ -149,7 +156,7 @@
     const m = match(item, text);
     const all = slots(item).length;
     if (m.done === all && m.at === m.typed.length) {
-      solve({ draft: text, fb: null, noComma: item.w.some(([, r]) => r === 'z') && !text.includes(',') });
+      solve({ draft: text, fb: null, noComma: item.w.some(([, r]) => r === 'z') && !text.includes(','), plain: plainSpelling(item, m.typed) });
     } else if (m.done === all) {
       fail(text, 'Всё нужное уже написано, но в конце есть лишние слова. Уберите их.');
     } else if (sameWords(item, m.typed)) {
@@ -223,7 +230,7 @@
     const want = list[m.done];
     const typing = !/\s$/.test(text);
     const rest = m.typed.slice(m.at);
-    const onTrack = rest.every((t, i) => (i === rest.length - 1 && typing ? (want.w[i] || '').startsWith(t) : want.w[i] === t));
+    const onTrack = rest.every((t, i) => (i === rest.length - 1 && typing ? foldE(want.w[i] || '').startsWith(foldE(t)) : same(want.w[i] || '', t)));
     if (!showHints()) {
       return onTrack ? '<div class="row"><button type="button" class="btn ghost small" data-act="sb-hint">Подсказка</button></div>' : '';
     }
@@ -281,10 +288,11 @@
     const verdict = s.gaveUp ? 'Вот как правильно' : s.errs ? `Получилось, неудачных попыток: ${s.errs}` : 'Отлично, с первого раза!';
     const mine = s.order && s.draft ? `<span class="small">Ваш вариант: <span lang="de">${esc(s.draft)}</span></span>` : '';
     const comma = s.noComma ? '<span class="small">Не забывайте запятую между частями предложения — в немецком она обязательна.</span>' : '';
+    const plain = s.plain ? '<span class="small">Засчитано. Лучше писать умлауты: ä, ö, ü, ß — кнопки есть под полем ввода.</span>' : '';
     return `<div class="fb ${s.errs ? 'bad' : 'ok'}" role="status">
         <span class="verdict">${verdict}</span>${mine}
         <span class="answer"><span lang="de">${esc(text)}</span> ${D.speakBtn(text)}</span>
-        <span class="small muted">${esc(item.ru)}</span>${comma}</div>
+        <span class="small muted">${esc(item.ru)}</span>${comma}${plain}</div>
       ${notes || rules ? `<section class="stack" style="gap:10px"><span class="eyebrow">Что здесь важно</span>${notes ? `<ul class="sb-notes">${notes}</ul>` : ''}${rules}</section>` : ''}
       <div class="s-actions"><span></span><button class="btn primary" data-act="sb-next" id="sbNext">${last ? 'Итог' : 'Дальше'} ↵</button></div>`;
   }

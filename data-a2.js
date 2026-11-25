@@ -307,7 +307,7 @@ window.DE_LEVELS.push({
 <tr><td>du</td><td>könntest</td><td>hättest</td><td>würdest</td><td>solltest</td></tr>
 <tr><td>er/sie/es</td><td>könnte</td><td>hätte</td><td>würde</td><td>sollte</td></tr>
 <tr><td>wir/sie/Sie</td><td>könnten</td><td>hätten</td><td>würden</td><td>sollten</td></tr></table>`,
-      q: [["___ Sie mir bitte helfen?", ["Können", "Könnten", "Konnten"], 1], ["Ich ___ gern einen Kaffee.", ["hätte", "hatte", "habe gern"], 0], ["Du ___ mehr Wasser trinken. (совет)", ["solltest", "sollst", "solle"], 0]]
+      q: [["___ Sie mir bitte helfen?", ["Können", "Könnten", "Konnten"], 1], ["Ich ___ gern einen Kaffee.", ["hätte", "hatte", "hast"], 0], ["Du ___ mehr Wasser trinken. (совет)", ["solltest", "sollst", "solle"], 0]]
     },
     {
       id: "a22-zu-inf", t: "Инфинитив с zu",

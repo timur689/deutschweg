@@ -600,7 +600,7 @@
   function guideLinksFor(ruleId) {
     const items = guideList().filter((g) => Array.isArray(g.r) && g.r.includes(ruleId));
     if (!items.length) return '';
-    return `<section class="stack" style="gap:10px"><h2>Шпаргалка по теме</h2><div class="rule-links">${items.map((g) => `<a class="rule-link" href="#gd-${g.id}"><span><span class="eyebrow">${g.lvl} · Шпаргалка</span><br><b>${esc(g.t)}</b></span><span class="pill">Как определить</span></a>`).join('')}</div></section>`;
+    return `<section class="stack" style="gap:10px"><h2>Шпаргалка по теме</h2><div class="rule-links">${items.map((g) => `<a class="rule-link" href="#gd-${g.id}"><span><span class="eyebrow">${g.lvl} · Шпаргалка</span><br><b>${esc(g.t)}</b></span><span class="pill">Читать</span></a>`).join('')}</div></section>`;
   }
 
   function quizItem(q, qi) {
