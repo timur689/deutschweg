@@ -1,11 +1,13 @@
 /* Service worker Deutschweg: файлы приложения хранятся на устройстве, чтобы оно работало без интернета. */
-const CACHE = 'deutschweg-176f25142a43';
+const CACHE = 'deutschweg-8f1096bf188b';
 const FILES = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./achievements.js",
   "./app.js",
+  "./builder-data.js",
+  "./builder.js",
   "./cards.js",
   "./data-a1.js",
   "./data-a2.js",

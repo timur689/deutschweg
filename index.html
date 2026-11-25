@@ -427,6 +427,24 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 .dlg-tr summary::-webkit-details-marker { display: none; }
 .dlg-tr span { display: block; margin-top: 4px; font-size: 14px; color: var(--muted); }
 
+/* sentence builder with hints */
+.sb-scheme { display: flex; flex-wrap: wrap; gap: 6px; }
+.sb-box { --rc: var(--muted); min-width: 58px; padding: 6px 10px 8px; border-radius: 14px; background: var(--glass-soft); box-shadow: inset 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 2px; transition: background-color .3s var(--ease), box-shadow .3s var(--ease); }
+.sb-box small { font: 700 10.5px/1.2 var(--font-display); color: var(--rc); letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; }
+.sb-box span { font: 700 17px/1.3 var(--font-display); }
+.sb-box.z { min-width: 0; padding-inline: 8px; }
+.sb-box.on { background: color-mix(in srgb, var(--rc) 15%, transparent); box-shadow: none; }
+.sb-box.cur { box-shadow: inset 0 0 0 2px var(--rc), 0 0 0 4px color-mix(in srgb, var(--rc) 18%, transparent); }
+.r-s, .r-q, .r-c { --rc: var(--der); } .r-v, .r-e, .r-f { --rc: var(--die); } .r-o, .r-d, .r-p { --rc: var(--das); }
+.r-t, .r-k, .r-m, .r-n { --rc: var(--gold); } .r-z, .r-r { --rc: var(--muted); }
+.sb-hint { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--rc) 11%, transparent); box-shadow: inset 3px 0 0 var(--rc); font-size: 14.5px; }
+.sb-hint .eyebrow { color: var(--rc); }
+.chip.sb-bad { opacity: .45; text-decoration: line-through; box-shadow: none; cursor: default; }
+.sb-notes { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+.sb-rule summary { font: 700 15px var(--font-display); }
+.sb-rule p { margin-top: 8px; }
+.sb-rule:not([open]) { padding-block: 14px; }
+
 /* AI explanation sheet */
 .why { color: var(--der); }
 .ai-sheet { position: fixed; z-index: 8; left: 50%; transform: translateX(-50%); bottom: calc(var(--nav-h) + 22px + env(safe-area-inset-bottom, 0px)); width: min(600px, calc(100% - 28px));
@@ -610,6 +628,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 <script src="phrases.js"></script>
 <script src="dialog-data.js"></script>
 <script src="dialog.js"></script>
+<script src="builder-data.js"></script>
+<script src="builder.js"></script>
 <script src="guide.js"></script>
 
 <script src="install.js"></script>
