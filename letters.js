@@ -39,7 +39,7 @@
     const tasks = LEVELS.map((lvl) => `<div class="sec-head"><h2>Напишите сами · ${lvl}</h2></div>
       <section class="packs">${TASKS.filter((t) => t.lvl === lvl).map((t) => `<a class="pane pack" href="#lt-w-${t.id}">
         <span class="hub-dot" style="background:var(--${t.reg === 'f' ? 'der' : 'die'})"></span>
-        <span class="pane-big">${esc(t.t)}</span><span class="count">${REG[t.reg]} · ${t.points.length} пункта · ~${t.min} слов${isDone(t.id) ? ' · ✓ готово' : ''}</span></a>`).join('')}</section>`).join('');
+        <span class="pane-big">${esc(t.t)}</span><span class="count">${t.exam ? 'экзамен · ' : ''}${REG[t.reg]} · ${t.points.length} пункта · ~${t.min} слов${isDone(t.id) ? ' · ✓ готово' : ''}</span></a>`).join('')}</section>`).join('');
     return `<a class="back" href="#practice">← Практика</a>
       <div class="page-head"><h1>Письма и e-mail</h1><p class="muted">Как начать, о чём писать и как закончить письмо — другу и в официальное место. Сначала правила и готовые фразы, потом упражнения и свои письма с проверкой.</p></div>
       <section class="packs hub">
@@ -202,7 +202,7 @@
     const r = wr.res && !wr.res.empty ? wr.res : null;
     const next = TASKS[TASKS.indexOf(task) + 1];
     return `<a class="back" href="#letters">← Письма и e-mail</a>
-      <div class="page-head"><p class="eyebrow">${task.lvl} · ${REG[task.reg]}${isDone(id) ? ' · ✓ готово' : ''}</p><h1>${esc(task.t)}</h1></div>
+      <div class="page-head"><p class="eyebrow">${task.exam ? `${esc(task.exam)} · ` : `${task.lvl} · `}${REG[task.reg]}${isDone(id) ? ' · ✓ готово' : ''}</p><h1>${esc(task.t)}</h1></div>
       <section class="panel stack" style="gap:8px"><p style="margin:0">${esc(task.s)}</p>
         <span class="eyebrow">В письме нужно</span>
         <ol class="lt-points">${task.points.map((p, i) => `<li class="${r ? (r.points[i] ? 'ok' : 'bad') : ''}">${r ? `<b>${r.points[i] ? '✓' : '✗'}</b> ` : ''}${esc(p.ru)}</li>`).join('')}</ol>

@@ -485,6 +485,22 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 .lt-checks { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.45; }
 .lt-checks li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 6px; overflow-wrap: anywhere; }
 .lt-checks li.ok b { color: var(--ok); } .lt-checks li.warn b { color: var(--der); } .lt-checks li.bad b { color: var(--bad); }
+/* Экзамен A2 */
+.a2-p { margin: 0; line-height: 1.55; }
+.a2-list { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; line-height: 1.5; }
+.a2-tip { display: flex; flex-direction: column; gap: 2px; line-height: 1.5; }
+.a2-hint summary, .a2-hint + * { cursor: pointer; }
+.a2-hint summary { color: var(--muted); font-size: 14px; }
+.a2-hint p { margin-top: 6px; }
+.a2-date { font: 600 16px var(--font-ui); padding: 10px 12px; border: 0; border-radius: 14px; background: var(--glass-strong); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); max-width: 220px; }
+.a2-card { align-self: flex-start; max-width: 100%; padding: 14px 20px; border-radius: 18px; background: var(--glass-strong); box-shadow: var(--shadow); font: 800 22px/1.25 var(--font-display); letter-spacing: -0.01em; overflow-wrap: anywhere; }
+.a2-aspects { display: flex; flex-wrap: wrap; gap: 6px; }
+.a2-cals { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.a2-cal { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; border-radius: 18px; background: var(--glass-soft); box-shadow: inset 0 0 0 1px var(--line); }
+.a2-cal-row { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 8px; font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; }
+.a2-gram { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: center; padding: 12px 14px; border-radius: 18px; background: var(--glass-soft); box-shadow: inset 0 0 0 1px var(--line); }
+.a2-gram a { display: flex; flex-direction: column; gap: 2px; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+.a2-gram.known { opacity: .7; }
 .sb-rule p { margin-top: 8px; }
 .sb-rule:not([open]) { padding-block: 14px; }
 
@@ -672,7 +688,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 <script src="dialog-data.js"></script>
 <script src="dialog.js"></script>
 <script src="builder-data.js"></script>
-<script src="builder.js"></script><script src="basics-data.js"></script><script src="basics.js"></script><script src="letters-data.js"></script><script src="letters-check.js"></script><script src="letters.js"></script>
+<script src="builder.js"></script><script src="basics-data.js"></script><script src="basics.js"></script><script src="letters-data.js"></script><script src="letters-check.js"></script><script src="letters.js"></script><script src="a2prep-data.js"></script><script src="a2prep.js"></script>
 <script src="guide.js"></script>
 
 <script src="install.js"></script>
