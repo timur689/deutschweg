@@ -462,6 +462,29 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 .bs-say { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; border: 0; background: none; padding: 0; color: var(--ink); font: 700 17px/1.25 var(--font-display); text-align: inherit; cursor: pointer; overflow-wrap: anywhere; }
 .bs-say svg { width: 14px; height: 14px; flex: none; color: var(--muted); }
 .bs-say:active { opacity: .6; }
+/* Письма и e-mail */
+.lt-rule p { margin: 0; line-height: 1.55; }
+.lt-sample, .lt-letter { display: flex; flex-direction: column; gap: 6px; }
+.lt-line { display: grid; grid-template-columns: minmax(84px, 128px) minmax(0, 1fr); gap: 10px; align-items: baseline; overflow-wrap: anywhere; }
+.lt-line [lang="de"] { font: 600 16px/1.45 var(--font-ui); }
+.lt-role { font: 700 11px/1.3 var(--font-ui); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 420px) { .lt-line { grid-template-columns: minmax(0, 1fr); gap: 1px; } .lt-sample, .lt-hints { gap: 10px; } }
+.lt-letter { min-height: 72px; padding: 14px 16px; border-radius: 18px; background: var(--glass-soft); box-shadow: inset 0 0 0 1px var(--line); }
+.lt-pool { display: flex; flex-direction: column; gap: 8px; }
+.lt-part { display: flex; flex-direction: column; gap: 3px; width: 100%; text-align: left; border: 0; border-radius: 14px; padding: 11px 14px; background: var(--glass-strong); box-shadow: var(--shadow); color: var(--ink); font: 600 16px/1.4 var(--font-ui); overflow-wrap: anywhere; cursor: pointer; transition: transform .3s var(--spring); }
+.lt-part:active:not(:disabled) { transform: scale(.98); }
+.lt-part.placed { background: transparent; box-shadow: none; padding: 4px 6px; border-radius: 10px; }
+.lt-part.placed:hover:not(:disabled) { background: var(--glass-strong); }
+.lt-part.right { box-shadow: inset 3px 0 0 var(--ok); }
+.lt-part.wrong { box-shadow: inset 3px 0 0 var(--bad); background: color-mix(in srgb, var(--bad) 10%, transparent); }
+.lt-part:disabled { cursor: default; }
+.lt-opts .opt { text-align: left; }
+.lt-points { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; line-height: 1.45; }
+.lt-points li.ok b { color: var(--ok); } .lt-points li.bad b { color: var(--bad); }
+.lt-text { min-height: 240px; font: 500 16px/1.55 var(--font-ui); }
+.lt-checks { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.45; }
+.lt-checks li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 6px; overflow-wrap: anywhere; }
+.lt-checks li.ok b { color: var(--ok); } .lt-checks li.warn b { color: var(--der); } .lt-checks li.bad b { color: var(--bad); }
 .sb-rule p { margin-top: 8px; }
 .sb-rule:not([open]) { padding-block: 14px; }
 
@@ -649,7 +672,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 <script src="dialog-data.js"></script>
 <script src="dialog.js"></script>
 <script src="builder-data.js"></script>
-<script src="builder.js"></script><script src="basics-data.js"></script><script src="basics.js"></script>
+<script src="builder.js"></script><script src="basics-data.js"></script><script src="basics.js"></script><script src="letters-data.js"></script><script src="letters-check.js"></script><script src="letters.js"></script>
 <script src="guide.js"></script>
 
 <script src="install.js"></script>

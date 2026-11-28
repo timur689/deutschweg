@@ -132,7 +132,7 @@
       <section class="panel stack"><h2>Lesen · Чтение</h2>${e.lesen.map((t, i) => taskHtml('L', i, t)).join('<hr>')}</section>
       <section class="panel stack"><h2>Hören · Аудирование</h2>${e.horen.map((t, i) => taskHtml('H', i, t)).join('<hr>')}</section>
       ${ex.submitted ? '' : `<div class="row"><button class="btn primary" data-act="ex-submit" ${answered < n ? 'disabled' : ''}>Проверить ответы</button><span class="small muted">Отвечено ${answered} из ${n}</span></div>`}
-      <section class="panel stack"><h2>Schreiben · Письмо</h2>
+      <section class="panel stack"><h2>Schreiben · Письмо</h2><a class="small" href="#letters">Как правильно писать письма →</a>
         <div class="exam-text">${esc(e.schreiben.task).replace(/\n/g, '<br>')}</div>
         <textarea id="examText" class="import" rows="8" lang="de" spellcheck="false" placeholder="Напишите ответ по-немецки…" aria-label="Ваш текст">${esc(ex.text)}</textarea>
         <div class="row"><span class="small muted" id="examWords">${words} слов (нужно около ${e.schreiben.min}+)</span></div>
