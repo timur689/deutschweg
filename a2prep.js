@@ -10,6 +10,8 @@
   const DAY_MS = 86400000;
   const POINTS_PER_MODULE = 25;
   const PASS_POINTS = 60;
+  const WRITTEN_MIN = 45;
+  const ORAL_MIN = 15;
   const PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
   const PARTS = { lesen: A.lesen, hoeren: A.hoeren };
   const CODE = { lesen: 'L', hoeren: 'H' };
@@ -85,7 +87,7 @@
     return `${back}<div class="page-head"><h1>Что за экзамен</h1><p class="muted">Goethe-Zertifikat A2: четыре части — чтение, аудирование, письмо и разговор.</p></div>
       ${mods}
       <section class="panel stack" style="gap:8px"><h2>Баллы и правила</h2>${list(A.scoring)}
-        <p class="small muted" style="margin:0">Чтобы сдать, нужно ${PASS_POINTS} из ${POINTS_PER_MODULE * 4} — то есть в среднем 15 из 25 в каждой части. Сильная часть может вытянуть слабую.</p></section>
+        <p class="small muted" style="margin:0">Чтобы сдать, нужно ${PASS_POINTS} из ${POINTS_PER_MODULE * 4}: в письменной части хотя бы ${WRITTEN_MIN} из ${POINTS_PER_MODULE * 3}, в Sprechen — хотя бы ${ORAL_MIN} из ${POINTS_PER_MODULE}. Внутри письменной части сильное чтение может вытянуть слабое письмо, но Sprechen ничем не заменить — тренируйте его вслух.</p></section>
       <section class="panel stack" style="gap:8px"><h2>Как набрать баллы</h2>${A.tips.map(([t, d]) => `<div class="a2-tip"><b lang="de">${esc(t)}</b><span>${esc(d)}</span></div>`).join('')}</section>
       <section class="panel stack" style="gap:8px"><h2>В день экзамена</h2>${list(A.day)}</section>
       <section class="panel stack" style="gap:6px"><span class="eyebrow">Важно</span><p class="a2-p">${esc(A.other)}</p></section>`;
